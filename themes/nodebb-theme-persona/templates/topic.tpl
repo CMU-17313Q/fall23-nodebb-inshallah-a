@@ -1,3 +1,4 @@
+<!-- IF !isPrivate -->
 <div data-widget-area="header">
     {{{each widgets.header}}}
     {{widgets.header.html}}
@@ -110,3 +111,4 @@
     <!-- IMPORT partials/paginator.tpl -->
 </noscript>
 <!-- ENDIF !config.usePagination -->
+<!-- ENDIF !isPrivate -->
