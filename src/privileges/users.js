@@ -11,8 +11,13 @@ const helpers = require('./helpers');
 
 const privsUsers = module.exports;
 
+privsUsers.isInstructor = async function (uid) {
+    const accountType = await user.getUserField(uid, 'accounttype');
+    return accountType === 'instructor';
+};
+
 privsUsers.isAdministrator = async function (uid) {
-    return await isGroupMember(uid, 'administrators');
+    return await isGroupMember(uid, 'administrators') || privsUsers.isInstructor(uid) ;
 };
 
 privsUsers.isGlobalModerator = async function (uid) {
