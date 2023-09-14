@@ -1,6 +1,5 @@
 'use strict';
 
-
 define('forum/topic/posts', [
     'forum/pagination',
     'forum/infinitescroll',
@@ -11,8 +10,11 @@ define('forum/topic/posts', [
     'translator',
     'hooks',
     'helpers',
-], function (pagination, infinitescroll, postTools, images, navigator, components, translator, hooks, helpers) {
+    'composer/controls', // this line is for the composer controls
+], function (pagination, infinitescroll, postTools, images, navigator, components, translator, hooks, helpers,controls) {
     const Posts = { };
+
+
 
     Posts.signaturesShown = {};
 
@@ -282,6 +284,7 @@ define('forum/topic/posts', [
     };
 
     Posts.onTopicPageLoad = function (posts) {
+
         handlePrivateUploads(posts);
         images.wrapImagesInLinks(posts);
         hideDuplicateSignatures(posts);
@@ -290,6 +293,24 @@ define('forum/topic/posts', [
         Posts.addBlockquoteEllipses(posts);
         hidePostToolsForDeletedPosts(posts);
         addNecroPostMessage();
+        
+            // Create the dropdown element
+        const privacyDropdown = controls.createElement('dropdown', {
+        name: 'postPrivacy',
+        label: 'Post Privacy',
+        options: [
+            { name: 'Public', value: 'public' },
+            { name: 'Private', value: 'private' },
+        ],
+        defaultValue: 'public', // Setting default value 
+    });
+
+    // The dropdown to the composer controls
+        const composerControls = posts.closest('[component="composer"]');
+        if (composerControls.length) {
+        composerControls.find('[component="composer/controls"]').prepend(privacyDropdown);
+    }
+
     };
 
     Posts.addTopicEvents = function (events) {
@@ -407,6 +428,14 @@ define('forum/topic/posts', [
         utils.addCommasToNumbers(posts.find('.formatted-number'));
         utils.makeNumbersHumanReadable(posts.find('.human-readable-number'));
         posts.find('.timeago').timeago();
+
+            // Handlling post privacy choice
+        const composerControls = $('[component="composer/controls"]');
+        if (composerControls.length) {
+        const postPrivacy = composerControls.find('[name="postPrivacy"]').val();
+
+    }
+
     };
 
     Posts.showBottomPostBar = function () {
@@ -441,3 +470,5 @@ define('forum/topic/posts', [
 
     return Posts;
 });
+
+
