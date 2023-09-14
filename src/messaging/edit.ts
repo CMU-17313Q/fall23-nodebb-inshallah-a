@@ -3,7 +3,7 @@ import user from '../user';
 import plugins from '../plugins';
 import privileges from '../privileges';
 import sockets from '../socket.io';
-//Translation
+
 // Added  interfaces
 interface MessageData {
   fromuid: number;frdswe
