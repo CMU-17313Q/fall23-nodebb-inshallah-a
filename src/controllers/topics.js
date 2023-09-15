@@ -340,6 +340,7 @@ topicsController.teaser = async function (req, res, next) {
     res.json(postData[0]);
 };
 
+
 topicsController.pagination = async function (req, res, next) {
     const tid = req.params.topic_id;
     const currentPage = parseInt(req.query.page, 10) || 1;

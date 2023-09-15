@@ -34,7 +34,7 @@ module.exports = function (Topics) {
             postcount: 0,
             viewcount: 0,
             //Adding a private variable 
-            isPrivate: data.isPrivate || false,
+            isPrivate: true,
         };
 
         if (Array.isArray(data.tags) && data.tags.length) {

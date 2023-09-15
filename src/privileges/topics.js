@@ -70,7 +70,7 @@ privsTopics.filterTids = async function (privilege, tids, uid) {
         return [];
     }
 
-    const topicsData = await topics.getTopicsFields(tids, ['tid', 'cid', 'deleted', 'scheduled']);
+    const topicsData = await topics.getTopicsFields(tids, ['tid', 'cid', 'deleted', 'scheduled', 'isPrivate']);
     const cids = _.uniq(topicsData.map(topic => topic.cid));
     const results = await privsCategories.getBase(privilege, cids, uid);
 

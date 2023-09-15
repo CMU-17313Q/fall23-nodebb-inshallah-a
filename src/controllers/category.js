@@ -85,6 +85,14 @@ categoryController.get = async function (req, res, next) {
     if (!categoryData) {
         return next();
     }
+    //categoryData.topics = categoryData.topics.filter(topic => !topic.isPrivate);
+
+   // console.log('Before filter:', categoryData.topics);
+   // categoryData.topics = categoryData.topics.filter(topic => topic.isPrivate);
+  //  console.log('After filter:', categoryData.topics);
+   
+
+   
 
     if (topicIndex > Math.max(categoryData.topic_count - 1, 0)) {
         return helpers.redirect(res, `/category/${categoryData.slug}/${categoryData.topic_count}?${qs.stringify(req.query)}`);
