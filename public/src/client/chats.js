@@ -351,12 +351,12 @@ define('forum/chats', [
             });
         });
 
-    //     function submit() {
-    //         api.put(`/chats/${roomId}`, {
-    //             name: modal.find('#roomName').val(),
-    //         }).catch(alerts.error);
-    //     }
-    // };
+        function submit() {
+            api.put(`/chats/${roomId}`, {
+                name: modal.find('#roomName').val(),
+            }).catch(alerts.error);
+        }
+    };
 
     Chats.addSendHandlers = function (roomId, inputEl, sendEl) {
         inputEl.off('keypress').on('keypress', function (e) {
