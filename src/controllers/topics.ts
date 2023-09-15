@@ -150,10 +150,20 @@ topicsController.updateIsPrivate = async (req: topics, res: topics, next: () => 
             return next();
         }
         // Ensures the parsing of the isPrivate value from req.body
-        const isPrivate: boolean = req.body.isPrivate === 'true';
+        const isPrivate: string = req.body.isPrivate;
+        // This is for testing
+        console.log(isPrivate)
+        let isPrivateStr: string;
+        // This method only ensures for a 1-time change
+        if (isPrivate === 'true') {
+            isPrivateStr = 'false';
+        } else if (isPrivate === 'false') {
+            isPrivateStr = 'true';
+        }
         // Correct arguments passed to the db setObjectField method, namely through topic id
         // and the boolean isPrivate
-        await db.setObjectField('topic:' + tid as string, 'isPrivate', isPrivate);
+        //
+        await db.setObjectField('topic:' + tid, 'isPrivate', isPrivate === 'true'); 
 
         res.status(200).send({ message: 'IsPrivate attribute updated successfully' });
     } catch (error) {
