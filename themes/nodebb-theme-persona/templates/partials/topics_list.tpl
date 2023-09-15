@@ -1,4 +1,3 @@
-
 <!-- IF privileges.isAdminOrMod -->
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
@@ -127,8 +126,8 @@
 <!-- IF !privileges.isAdminOrMod -->
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
-
-   {{{ if (!topics.isPrivate || topics.isOwner) }}}
+   
+   {{{ if (!isPrivate || isOwner) }}}
     <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
         <link itemprop="url" content="{config.relative_path}/topic/{../slug}" />
         <meta itemprop="name" content="{function.stripTags, ../title}" />
@@ -189,7 +188,7 @@
                     <small>&bull;</small>
                 </span>
                 {{{ end }}}
-
+        <!-- IF (!topics.isAnonymous || topics.isOwner )  -->
                 <small class="hidden-xs"><span class="timeago" title="{topics.timestampISO}"></span> &bull; <a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->">{topics.user.displayname}</a></small>
                 <small class="visible-xs-inline">
                     <!-- IF topics.teaser.timestamp -->
@@ -198,8 +197,24 @@
                     <span class="timeago" title="{topics.timestampISO}"></span>
                     <!-- ENDIF topics.teaser.timestamp -->
                 </small>
+                <!-- ENDIF (!topics.isAnonymous || topics.isOwner ) -->
+                <!-- IF topics.isAnonymous  -->
+                 <!-- IF !topics.isOwner  -->
+                 <small class="hidden-xs"><span class="timeago" title="{topics.timestampISO}"></span> &bull; <a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->">Anonymous</a></small>
+                    <small class="visible-xs-inline">
+                        <!-- IF topics.teaser.timestamp -->
+                        <span class="timeago" title="{topics.teaser.timestampISO}"></span>
+                        <!-- ELSE -->
+                        <span class="timeago" title="{topics.timestampISO}"></span>
+                        <!-- ENDIF topics.teaser.timestamp -->
+                </small>
+                <!-- ENDIF topics.isAnonymous   -->
+                <!-- ENDIF !topics.isOwner   -->
+
+
             </h2>
         </div>
+       
 
         <div class="mobile-stat col-xs-2 visible-xs text-right">
             <span class="human-readable-number">{topics.postcount}</span> <a href="{config.relative_path}/topic/{topics.slug}/{topics.teaser.index}"><i class="fa fa-arrow-circle-right"></i></a>
@@ -249,5 +264,3 @@
     {{{end}}}
 </ul>
 <!-- ENDIF !privileges.isAdminOrMod -->
-
-

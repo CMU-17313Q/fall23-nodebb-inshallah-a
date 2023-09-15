@@ -1,16 +1,60 @@
 <div class="clearfix post-header">
-    <div class="icon pull-left">
-        <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->">
-            {buildAvatar(posts.user, "sm2x", true, "", "user/picture")}
-            <i component="user/status" class="fa fa-circle status {posts.user.status}" title="[[global:{posts.user.status}]]"></i>
-        </a>
+  <!-- IF (!isAnonymous || posts.selfPost) -->
+<div class="icon pull-left">
+    <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->">
+        {buildAvatar(posts.user, "sm2x", true, "", "user/picture")}
+        <i component="user/status" class="fa fa-circle status {posts.user.status}" title="[[global:{posts.user.status}]]"></i>
+    </a>
+</div>
+<!-- ENDIF (!isAnonymous || posts.selfPost) -->
+
+<!-- IF isAnonymous  -->
+    <!-- IF !posts.selfPost  -->
+    <div class="anonymous-wrapper" style="display: flex; align-items: center;">
+        <div class="anonymous-icon" style="width: 40px; height: 40px; background-color: grey; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+            <span style="color: white; font-size: 24px;">A</span>
+        </div>
+        <strong style="margin-left: 10px;">
+            Anonymous
+        </strong>
     </div>
+    <!-- ENDIF !posts.selfPost  -->
+<!-- ENDIF isAnonymous  -->
+
+  
+
 
     <small class="pull-left">
+       
+       <!-- IF posts.selfPost   -->
         <strong>
             <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->" itemprop="author" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
         </strong>
+         <!-- ENDIF  posts.selfPost  -->
 
+
+         <!-- ENDIF !posts.selfPost -->
+          <!-- ENDIF isAnonymous   -->
+
+
+
+            <!-- IF !isAnonymous   -->
+         <!-- IF !posts.selfPost  -->
+        <strong>
+            <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->" itemprop="author" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
+        </strong>
+         <!-- ENDIF !posts.selfPost -->
+          <!-- ENDIF !isAnonymous   -->
+
+        
+
+
+        
+
+
+
+
+         
         <!-- IMPORT partials/topic/badge.tpl -->
 
         <!-- IF posts.user.banned -->
