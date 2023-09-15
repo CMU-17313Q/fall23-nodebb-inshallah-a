@@ -10,6 +10,7 @@ define('forum/topic/posts', [
     'translator',
     'hooks',
     'helpers',
+    
     'composer/controls', // this line is for the composer controls
 ], function (pagination, infinitescroll, postTools, images, navigator, components, translator, hooks, helpers,controls) {
     const Posts = { };
