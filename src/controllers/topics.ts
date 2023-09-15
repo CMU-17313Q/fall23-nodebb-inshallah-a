@@ -122,32 +122,32 @@ topicsController.get = async function getTopic(req, res, next) {
 
     res.render('topic', topicData);
 };
-topicsController.getIsPrivate = async (req, res, next) => {
+topicsController.getIsPrivate = async (req: topics, res: topics, next: () => boolean) => {
     try {
-        const tid= req.params.topic_id as BigInteger;
+        const tid = req.params.topic_id as number;
 
         if (!utils.isNumber(tid)) {
             return next();
         }
 
-        const topicData = await topics.getTopicData(tid);
+        const topicData = await topics.getTopicData(tid as number);
 
         if (!topicData) {
-            return res.status(404).send({ message: 'Topic not found' });
+            return res.status(404).send({ message: 'Topic not found' }) as string;
         }
 
-        res.status(200).send({ isPrivate: topicData.isPrivate });
+        res.status(200).send({ isPrivate: topicData.isPrivate } as unknown);
     } catch (error) {
         res.status(500).send({ message: error.message });
     }
 };
 
-topicsController.updateIsPrivate = async (req, res, next) => {
+topicsController.updateIsPrivate = async (req: topics, res: topics, next: () => boolean) => {
     try {
-        const tid = req.params.topic_id;
+        const tid = req.params.topic_id  as number;
 
         if (!utils.isNumber(tid)) {
-            return next();
+            return next() as boolean;
         }
         // Ensures the parsing of the isPrivate value from req.body
         const isPrivate = req.body.isPrivate === 'true'; 
