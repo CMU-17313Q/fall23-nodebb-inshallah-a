@@ -57,6 +57,13 @@ _mounts.globalMod = (app, middleware, controllers) => {
 
 _mounts.topic = (app, name, middleware, controllers) => {
     setupPageRoute(app, `/${name}/:topic_id/:slug/:post_index?`, [], controllers.topics.get);
+    // a means to get the isPrivate attribute of a given topic
+    // this is only for testing purposes
+    setupPageRoute(app, `/${name}/:topic_id/:slug/:post_index?/isPrivate`, [], controllers.topics.getIsPrivate);
+
+    //this is the addition of a post route to ensure isPrivate boolean is handeled correctly upon
+    // state change by the user
+    app.post(`/${name}/:topic_id/:slug/:post_index?/post/isPrivate`, controllers.topics.updateIsPrivate);
     setupPageRoute(app, `/${name}/:topic_id/:slug?`, [], controllers.topics.get);
 };
 
@@ -106,6 +113,8 @@ _mounts.groups = (app, name, middleware, controllers) => {
     setupPageRoute(app, `/${name}/:slug`, middlewares, controllers.groups.details);
     setupPageRoute(app, `/${name}/:slug/members`, middlewares, controllers.groups.members);
 };
+
+
 
 module.exports = async function (app, middleware) {
     const router = express.Router();
@@ -229,3 +238,4 @@ function addRemountableRoutes(app, router, middleware, mounts) {
         _mounts[original](router, mount, middleware, controllers);
     });
 }
+// added code
