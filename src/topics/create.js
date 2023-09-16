@@ -21,13 +21,13 @@ const privileges = require('../privileges');
 const categories = require('../categories');
 const translator = require('../translator');
 module.exports = function (Topics) {
-
-
     Topics.create = function (data) {
         return __awaiter(this, void 0, void 0, function* () {
             // This is an internal method, consider using Topics.post instead
             const timestamp = data.timestamp || Date.now();
             const tid = yield db.incrObjectField('global', 'nextTid');
+            // the lines pertaining to topicData attribute were converted, to ensure
+            // the added isPrivate was included as typescript to boolean.
             let topicData = {
                 tid: tid,
                 uid: data.uid,
@@ -77,7 +77,6 @@ module.exports = function (Topics) {
             plugins.hooks.fire('action:topic.save', { topic: _.clone(topicData), data: data });
             return topicData.tid;
         });
-
     };
     Topics.post = function (data) {
         return __awaiter(this, void 0, void 0, function* () {
