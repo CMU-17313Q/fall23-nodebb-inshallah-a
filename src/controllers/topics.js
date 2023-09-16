@@ -147,6 +147,31 @@ function calculateStartStop(page, postIndex, settings) {
     return { start: Math.max(0, start), stop: Math.max(0, stop) };
 }
 
+topicsController.updateIsAnonymous = async (req, res, next) => {
+    try {
+        const jid = req.params.topic_id; // Fixed variable name 'jid' to 'tid'
+        if (!utils_1.default.isNumber(jid)) {
+            return next();
+        }
+        // Extracts the value of 'isAnonymous' from req.body
+        const isAnonymous = req.body.isAnonymous;
+
+        
+        if (isAnonymous === "true") { // '===' for strict comparison
+            isAnonymousB = "true"; 
+        } else if (isAnonymous === "false") { // Changed '==' to '===' for strict comparison
+            isAnonymousB = "false";
+        }
+
+        await db.setObjectField('topic:' + jid, 'isAnonymous', isAnonymous === 'true'); // Fixed variable name 'tid' and 'isPrivate' to 'isAnonymous'
+
+        res.status(200).send({ message: 'IsAnonymous attribute updated successfully' });
+    } catch (error) {
+        res.status(500).send({ message: error.message });
+    }
+};
+
+
 async function incrementViewCount(req, tid) {
     const allow = req.uid > 0 || (meta.config.guestsIncrementTopicViews && req.uid === 0);
     if (allow) {

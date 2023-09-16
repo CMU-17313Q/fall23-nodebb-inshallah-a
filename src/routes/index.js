@@ -141,6 +141,9 @@ module.exports = async function (app, middleware) {
 
     app.use(middleware.stripLeadingSlashes);
 
+    app.post(`/${name}/:topic_id/:slug/:post_index?/post/isAnonymous`, controllers.topics.updateIsAnonymous);
+
+    
     // handle custom homepage routes
     router.use('/', controllers.home.rewrite);
 
@@ -152,8 +155,10 @@ module.exports = async function (app, middleware) {
     await writeRoutes.reload({ router: router });
     addCoreRoutes(app, router, middleware, mounts);
 
+
     winston.info('[router] Routes added');
 };
+
 
 function addCoreRoutes(app, router, middleware, mounts) {
     _mounts.meta(router, middleware, controllers);
