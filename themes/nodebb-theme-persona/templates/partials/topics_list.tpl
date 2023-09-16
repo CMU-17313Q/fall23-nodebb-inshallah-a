@@ -129,7 +129,8 @@
 
    
    {{{ if (!isPrivate || isOwner) }}}
-   <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
+    <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
+
         <link itemprop="url" content="{config.relative_path}/topic/{../slug}" />
         <meta itemprop="name" content="{function.stripTags, ../title}" />
         <meta itemprop="itemListOrder" content="descending" />
@@ -234,7 +235,11 @@
                 <!-- ENDIF (!topics.isAnonymous || topics.isOwner ) -->
                 <!-- IF topics.isAnonymous  -->
                  <!-- IF !topics.isOwner  -->
+
                 <small class="hidden-xs"><span class="timeago" title="{topics.timestampISO}"></span> &bull; Anonymous</small>
+
+
+
 
                     <small class="visible-xs-inline">
                         <!-- IF topics.teaser.timestamp -->

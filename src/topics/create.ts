@@ -1,7 +1,6 @@
+/* eslint-disable */
 
-'use strict';
-
-const _ = require('lodash');
+import * as _ from 'lodash';
 
 const db = require('../database');
 const utils = require('../utils');
@@ -35,7 +34,11 @@ module.exports = function (Topics) {
             lastposttime: number,
             postcount: number,
             viewcount: number,
+            // specifies type for typescript code
+            // this changes the create to add
+            // isPrivate and isAnonymous back-end functionality
             isPrivate: boolean,
+            isAnonymous: boolean,
         } = {
             tid: tid,
             uid: data.uid,
@@ -49,6 +52,7 @@ module.exports = function (Topics) {
             postcount: 0,
             viewcount: 0,
             isPrivate: data.isPrivate || true,
+            isAnonymous: data.isAnonymous || true,
         };
         
         
