@@ -1,4 +1,4 @@
-
+/ 
 <!-- IF privileges.isAdminOrMod -->
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
