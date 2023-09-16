@@ -172,7 +172,7 @@ privsPosts.canDelete = async function (pid, uid) {
     });
     results.isMod = results.isMod[0];
     if (results.isAdmin) {
-        return { flag: true };
+        return { flag: false }; //false
     }
 
     if (!results.isMod && results.isLocked) {
@@ -184,8 +184,8 @@ privsPosts.canDelete = async function (pid, uid) {
         return { flag: false, message: `[[error:post-delete-duration-expired, ${meta.config.postDeleteDuration}]]` };
     }
     const { deleterUid } = postData;
-    const flag = results['posts:delete'] && ((results.isOwner && (deleterUid === 0 || deleterUid === postData.uid)) || results.isMod);
-    return { flag: flag, message: '[[error:no-privileges]]' };
+    const flag = results['posts:delete'] && ((!results.isOwner && (deleterUid === 0 || deleterUid === postData.uid)) || results.isMod);
+    return { flag: flag, message: '[[error:no-privileges]]' }; //false
 };
 
 privsPosts.canFlag = async function (pid, uid) {
