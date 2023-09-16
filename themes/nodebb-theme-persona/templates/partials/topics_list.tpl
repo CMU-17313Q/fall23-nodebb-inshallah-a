@@ -1,4 +1,3 @@
-/ 
 <!-- IF privileges.isAdminOrMod -->
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
@@ -128,8 +127,9 @@
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
 
-   {{{ if (!topics.isPrivate || topics.isOwner) }}}
-    <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
+   
+   {{{ if (!isPrivate || isOwner) }}}
+   <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
         <link itemprop="url" content="{config.relative_path}/topic/{../slug}" />
         <meta itemprop="name" content="{function.stripTags, ../title}" />
         <meta itemprop="itemListOrder" content="descending" />
@@ -138,7 +138,10 @@
 
         <div class="col-md-6 col-sm-9 col-xs-10 content">
             <div class="avatar pull-left">
+
+
                 <!-- IF showSelect -->
+                      <!-- IF (!isAnonymous || isOwner) -->
                 <div class="select" component="topic/select">
                     {{{ if ./thumbs.length }}}
                     <img src="{./thumbs.0.url}" class="user-img not-responsive" />
@@ -146,22 +149,52 @@
                     {buildAvatar(../user, "46", true, "not-responsive")}
                     {{{ end }}}
                     <i class="fa fa-check"></i>
+                </div> 
+<!-- ENDIF (!isAnonymous || isOwner) -->
+
+<!-- IF isAnonymous  -->
+    <!-- IF !isOwner  -->
+  
+       <div class="anonymous-icon" style="width: 40px; height: 40px; background-color: grey; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center;">
+                    <span style="color: white; font-size: 24px;">A</span>
                 </div>
+        
+    </div>
+    <!-- ENDIF !isOwner  -->
+<!-- ENDIF isAnonymous  -->
+  
+
+
+
+
+
                 <!-- ENDIF showSelect -->
 
+
                 <!-- IF !showSelect -->
-                <a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->" class="pull-left">
+                                     <!-- IF (!topics.isAnonymous || topics.isOwner) -->
+<a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->" class="pull-left">
                     {{{ if ./thumbs.length }}}
                     <img src="{./thumbs.0.url}" class="user-img not-responsive" />
                     {{{ else }}}
                     {buildAvatar(../user, "46", true, "not-responsive")}
                     {{{ end }}}
                 </a>
+<!-- ENDIF (!topics.isAnonymous || topics.isOwner) -->
+
+<!-- IF topics.isAnonymous  -->
+    <!-- IF !topics.isOwner  -->
+    
+      <div class="anonymous-icon" style="width: 40px; height: 40px; background-color: grey; border-radius: 50%; display: inline-flex; justify-content: center; align-items: center;">
+                    <span style="color: white; font-size: 24px;">A</span>
+                </div>
+    <!-- ENDIF !topics.isOwner  -->
+<!-- ENDIF topics.isAnonymous  -->
                 <!-- ENDIF !showSelect -->
             </div>
 
-            <h2 component="topic/header" class="title">
-                <span class="isPrivate">Is Private: {topics.isPrivate}</span>  <!-- This line is new -->
+             <h2 component="topic/header" class="title">
+              
                 <i component="topic/scheduled" class="fa fa-clock-o <!-- IF !topics.scheduled -->hide<!-- ENDIF !topics.scheduled -->" title="[[topic:scheduled]]"></i>
                 <i component="topic/pinned" class="fa fa-thumb-tack <!-- IF (topics.scheduled || !topics.pinned) -->hide<!-- ENDIF (topics.scheduled || !topics.pinned) -->" title="{{{ if !../pinExpiry }}}[[topic:pinned]]{{{ else }}}[[topic:pinned-with-expiry, {../pinExpiryISO}]]{{{ end }}}"></i>
                 <i component="topic/locked" class="fa fa-lock <!-- IF !topics.locked -->hide<!-- ENDIF !topics.locked -->" title="[[topic:locked]]"></i>
@@ -189,7 +222,7 @@
                     <small>&bull;</small>
                 </span>
                 {{{ end }}}
-
+        <!-- IF (!topics.isAnonymous || topics.isOwner )  -->
                 <small class="hidden-xs"><span class="timeago" title="{topics.timestampISO}"></span> &bull; <a href="<!-- IF topics.user.userslug -->{config.relative_path}/user/{topics.user.userslug}<!-- ELSE -->#<!-- ENDIF topics.user.userslug -->">{topics.user.displayname}</a></small>
                 <small class="visible-xs-inline">
                     <!-- IF topics.teaser.timestamp -->
@@ -198,8 +231,25 @@
                     <span class="timeago" title="{topics.timestampISO}"></span>
                     <!-- ENDIF topics.teaser.timestamp -->
                 </small>
+                <!-- ENDIF (!topics.isAnonymous || topics.isOwner ) -->
+                <!-- IF topics.isAnonymous  -->
+                 <!-- IF !topics.isOwner  -->
+                <small class="hidden-xs"><span class="timeago" title="{topics.timestampISO}"></span> &bull; Anonymous</small>
+
+                    <small class="visible-xs-inline">
+                        <!-- IF topics.teaser.timestamp -->
+                        <span class="timeago" title="{topics.teaser.timestampISO}"></span>
+                        <!-- ELSE -->
+                        <span class="timeago" title="{topics.timestampISO}"></span>
+                        <!-- ENDIF topics.teaser.timestamp -->
+                </small>
+                <!-- ENDIF topics.isAnonymous   -->
+                <!-- ENDIF !topics.isOwner   -->
+
+
             </h2>
         </div>
+       
 
         <div class="mobile-stat col-xs-2 visible-xs text-right">
             <span class="human-readable-number">{topics.postcount}</span> <a href="{config.relative_path}/topic/{topics.slug}/{topics.teaser.index}"><i class="fa fa-arrow-circle-right"></i></a>
@@ -249,5 +299,3 @@
     {{{end}}}
 </ul>
 <!-- ENDIF !privileges.isAdminOrMod -->
-
-
