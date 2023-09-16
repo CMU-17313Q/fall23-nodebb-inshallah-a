@@ -1,7 +1,6 @@
+/* eslint-disable */
 
-'use strict';
-
-const _ = require('lodash');
+import * as _ from 'lodash';
 
 const db = require('../database');
 const utils = require('../utils');
