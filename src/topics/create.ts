@@ -15,7 +15,7 @@ const categories = require('../categories');
 const translator = require('../translator');
 
 module.exports = function (Topics) {
-    Topics.create = async function (data) {
+    Topics.create = async function (data: { timestamp: number; uid: number; cid: number; title: string; isPrivate: boolean; isAnonymous: boolean; tags: string[]; }) {
         // This is an internal method, consider using Topics.post instead
         const timestamp = data.timestamp || Date.now();
 
@@ -51,8 +51,8 @@ module.exports = function (Topics) {
             lastposttime: 0,
             postcount: 0,
             viewcount: 0,
-            isPrivate: data.isPrivate || true,
-            isAnonymous: data.isAnonymous || true,
+            isPrivate: data.isPrivate,
+            isAnonymous: data.isAnonymous,
         };
         
         
