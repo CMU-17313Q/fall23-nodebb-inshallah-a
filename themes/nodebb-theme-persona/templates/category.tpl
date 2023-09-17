@@ -11,9 +11,7 @@
         <div class="topic-list-header clearfix">
             <!-- IF privileges.topics:create -->
             <a href="{config.relative_path}/compose?cid={cid}" component="category/post" id="new_topic" class="btn btn-primary" data-ajaxify="false" role="button">[[category:new_topic_button]]</a>
-             <!-- New checkbox for anonymous posting -->
-             <label for="anonymous_checkbox">Post as Anonymous</label>
-             <input type="checkbox" id="anonymous_checkbox">
+           
             <!-- ELSE -->
                 <!-- IF !loggedIn -->
                 <a component="category/post/guest" href="{config.relative_path}/login" class="btn btn-primary">[[category:guest-login-post]]</a>
