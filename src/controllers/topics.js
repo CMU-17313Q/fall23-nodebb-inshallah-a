@@ -145,6 +145,7 @@ topicsController.updateIsPrivate = (req, res, next) => __awaiter(void 0, void 0,
         else if (isPrivate === 'false') {
             isPrivateStr = 'true';
         }
+        // This is for testing
         console.log(isPrivateStr);
         // Correct arguments passed to the db setObjectField method, namely through topic id
         // and the boolean isPrivate
