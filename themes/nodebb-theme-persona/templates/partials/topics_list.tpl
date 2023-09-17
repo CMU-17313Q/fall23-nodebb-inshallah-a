@@ -129,8 +129,8 @@
 
    
    {{{ if (!isPrivate || isOwner) }}}
-    <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
-
+   
+   <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
         <link itemprop="url" content="{config.relative_path}/topic/{../slug}" />
         <meta itemprop="name" content="{function.stripTags, ../title}" />
         <meta itemprop="itemListOrder" content="descending" />
@@ -195,6 +195,7 @@
             </div>
 
              <h2 component="topic/header" class="title">
+             
               
                 <i component="topic/scheduled" class="fa fa-clock-o <!-- IF !topics.scheduled -->hide<!-- ENDIF !topics.scheduled -->" title="[[topic:scheduled]]"></i>
                 <i component="topic/pinned" class="fa fa-thumb-tack <!-- IF (topics.scheduled || !topics.pinned) -->hide<!-- ENDIF (topics.scheduled || !topics.pinned) -->" title="{{{ if !../pinExpiry }}}[[topic:pinned]]{{{ else }}}[[topic:pinned-with-expiry, {../pinExpiryISO}]]{{{ end }}}"></i>
@@ -235,11 +236,8 @@
                 <!-- ENDIF (!topics.isAnonymous || topics.isOwner ) -->
                 <!-- IF topics.isAnonymous  -->
                  <!-- IF !topics.isOwner  -->
-
                 <small class="hidden-xs"><span class="timeago" title="{topics.timestampISO}"></span> &bull; Anonymous</small>
-
-
-
+                
 
                     <small class="visible-xs-inline">
                         <!-- IF topics.teaser.timestamp -->
