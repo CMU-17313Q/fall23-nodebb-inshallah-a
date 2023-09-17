@@ -294,23 +294,6 @@ define('forum/topic/posts', [
         Posts.addBlockquoteEllipses(posts);
         hidePostToolsForDeletedPosts(posts);
         addNecroPostMessage();
-        
-            // Create the dropdown element
-        const privacyDropdown = controls.createElement('dropdown', {
-        name: 'postPrivacy',
-        label: 'Post Privacy',
-        options: [
-            { name: 'Public', value: 'public' },
-            { name: 'Private', value: 'private' },
-        ],
-        defaultValue: 'public', // Setting default value 
-    });
-
-    // The dropdown to the composer controls
-        const composerControls = posts.closest('[component="composer"]');
-        if (composerControls.length) {
-        composerControls.find('[component="composer/controls"]').prepend(privacyDropdown);
-    }
 
     };
 
