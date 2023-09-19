@@ -127,7 +127,7 @@
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
 
-  {{{ if ((topics.isPrivate == "false") || topics.isOwner) }}}
+  {{{ if ((topics.isPrivate == "false" ) || topics.isOwner) }}}
 
    
    <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
