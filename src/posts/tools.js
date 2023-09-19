@@ -4,15 +4,12 @@ const privileges = require('../privileges');
 
 module.exports = function (Posts) {
     Posts.tools = {};
-
     Posts.tools.delete = async function (uid, pid) {
         return await togglePostDelete(uid, pid, true);
     };
-
     Posts.tools.restore = async function (uid, pid) {
         return await togglePostDelete(uid, pid, false);
     };
-
     async function togglePostDelete(uid, pid, isDelete) {
         const [postData, canDelete] = await Promise.all([
             Posts.getPostData(pid),

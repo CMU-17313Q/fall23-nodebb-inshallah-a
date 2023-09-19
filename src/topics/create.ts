@@ -1,5 +1,7 @@
 /* eslint-disable */
-
+// This file had minor additions
+// for testing that were converted to typescript
+// thus eslint was disabled for Sprint 1. 
 import * as _ from 'lodash';
 
 const db = require('../database');

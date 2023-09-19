@@ -114,6 +114,7 @@ postsAPI.edit = async function (caller, data) {
 };
 
 postsAPI.delete = async function (caller, data) {
+    console.log(data);
     await deleteOrRestore(caller, data, {
         command: 'delete',
         event: 'event:post_deleted',
@@ -134,6 +135,8 @@ async function deleteOrRestore(caller, data, params) {
         throw new Error('[[error:invalid-data]]');
     }
     const postData = await posts.tools[params.command](caller.uid, data.pid);
+    // debugging
+    console.log(false);
     const results = await isMainAndLastPost(data.pid);
     if (results.isMain && results.isLast) {
         await deleteOrRestoreTopicOf(params.command, data.pid, caller);

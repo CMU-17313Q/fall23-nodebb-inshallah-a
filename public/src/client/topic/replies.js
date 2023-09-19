@@ -61,6 +61,8 @@ define('forum/topic/replies', ['forum/topic/posts', 'hooks', 'alerts'], function
         if (!post) {
             return;
         }
+        // for debugging
+        console.log('Something is wrong here');
         incrementCount(post, 1);
         data.hideReplies = config.hasOwnProperty('showNestedReplies') ? !config.showNestedReplies : true;
         app.parseAndTranslate('topic', 'posts', data, function (html) {

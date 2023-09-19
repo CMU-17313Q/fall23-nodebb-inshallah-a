@@ -476,8 +476,9 @@ helpers.formatApiResponse = async (statusCode, res, payload) => {
             const params = message.slice('[[error:required-parameters-missing, '.length, -2).split(' ');
             Object.assign(response, { params });
         }
-
         const returnPayload = await helpers.generateError(statusCode, message, res);
+        console.log(returnPayload);
+
         returnPayload.response = response;
 
         if (global.env === 'development') {

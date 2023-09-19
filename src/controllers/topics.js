@@ -12,6 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable */
+// This file had minor additions
+// for testing that were converted to typescript
+// thus eslint was disabled for Sprint 1. 
 const nconf_1 = __importDefault(require("nconf"));
 const querystring_1 = __importDefault(require("querystring"));
 const database_1 = __importDefault(require("../database"));
@@ -145,6 +149,7 @@ topicsController.updateIsPrivate = (req, res, next) => __awaiter(void 0, void 0,
         else if (isPrivate === 'false') {
             isPrivateStr = 'true';
         }
+        // This is for testing
         console.log(isPrivateStr);
         // Correct arguments passed to the db setObjectField method, namely through topic id
         // and the boolean isPrivate

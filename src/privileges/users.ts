@@ -1,4 +1,5 @@
-
+/* eslint-disable */
+// used disable because only 1 function was added
 'use strict';
 
 import _ from 'lodash';

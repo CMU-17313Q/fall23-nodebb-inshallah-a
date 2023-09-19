@@ -10,9 +10,8 @@ define('forum/topic/posts', [
     'translator',
     'hooks',
     'helpers',
-    
     'composer/controls', // this line is for the composer controls
-], function (pagination, infinitescroll, postTools, images, navigator, components, translator, hooks, helpers,controls) {
+], function (pagination, infinitescroll, postTools, images, navigator, components, translator, hooks, helpers) {
     const Posts = { };
 
 
@@ -285,7 +284,6 @@ define('forum/topic/posts', [
     };
 
     Posts.onTopicPageLoad = function (posts) {
-
         handlePrivateUploads(posts);
         images.wrapImagesInLinks(posts);
         hideDuplicateSignatures(posts);
@@ -294,7 +292,6 @@ define('forum/topic/posts', [
         Posts.addBlockquoteEllipses(posts);
         hidePostToolsForDeletedPosts(posts);
         addNecroPostMessage();
-
     };
 
     Posts.addTopicEvents = function (events) {
@@ -406,20 +403,10 @@ define('forum/topic/posts', [
 
     Posts.onNewPostsAddedToDom = function (posts) {
         Posts.onTopicPageLoad(posts);
-
         app.createUserTooltips(posts);
-
         utils.addCommasToNumbers(posts.find('.formatted-number'));
         utils.makeNumbersHumanReadable(posts.find('.human-readable-number'));
         posts.find('.timeago').timeago();
-
-            // Handlling post privacy choice
-        const composerControls = $('[component="composer/controls"]');
-        if (composerControls.length) {
-        const postPrivacy = composerControls.find('[name="postPrivacy"]').val();
-
-    }
-
     };
 
     Posts.showBottomPostBar = function () {
