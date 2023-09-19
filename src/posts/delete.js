@@ -12,6 +12,7 @@ const flags = require('../flags');
 
 module.exports = function (Posts) {
     Posts.delete = async function (pid, uid) {
+        console.log("TESTTTT" + true);
         return await deleteOrRestore('delete', pid, uid);
     };
 

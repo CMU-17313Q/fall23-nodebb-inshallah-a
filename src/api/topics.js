@@ -32,39 +32,6 @@ topicsAPI.get = async function (caller, data) {
     return topic;
 };
 
-// topicsAPI.create = async function (caller, data) {
-//     if (!data) {
-//         throw new Error('[[error:invalid-data]]');
-//     }
-
-//     const payload = { ...data };
-//     payload.tags = payload.tags || [];
-//     apiHelpers.setDefaultPostData(caller, payload);
-//     const isScheduling = parseInt(data.timestamp, 10) > payload.timestamp;
-//     if (isScheduling) {
-//         if (await privileges.categories.can('topics:schedule', data.cid, caller.uid)) {
-//             payload.timestamp = parseInt(data.timestamp, 10);
-//         } else {
-//             throw new Error('[[error:no-privileges]]');
-//         }
-//     }
-
-//     await meta.blacklist.test(caller.ip);
-//     const shouldQueue = await posts.shouldQueue(caller.uid, payload);
-//     if (shouldQueue) {
-//         return await posts.addToQueue(payload);
-//     }
-
-//     const result = await topics.post(payload);
-//     await topics.thumbs.migrate(data.uuid, result.topicData.tid);
-
-//     socketHelpers.emitToUids('event:new_post', { posts: [result.postData] }, [caller.uid]);
-//     socketHelpers.emitToUids('event:new_topic', result.topicData, [caller.uid]);
-//     socketHelpers.notifyNew(caller.uid, 'newTopic', { posts: [result.postData], topic: result.topicData });
-
-//     return result.topicData;
-// };
-
 topicsAPI.create = async function (caller, data) {
     if (!data) {
         throw new Error('[[error:invalid-data]]');
@@ -81,23 +48,6 @@ topicsAPI.create = async function (caller, data) {
             throw new Error('[[error:no-privileges]]');
         }
     }
-    const privacy = data.privacy; 
-
-    // Check if the post should be private
-    if (privacy === 'private') {
-        // Check if the user is an instructor
-        const userIsInstructor = await checkUserIsInstructor(caller.uid);
-
-        if (!userIsInstructor) {
-            throw new Error('[[error:no-privileges-for-private]]');
-        }
-        // Set the visibility to 'private'
-        isPrivate = true;
-        payload.visibility = 'private';
-    } else {
-        // If not private, set the visibility to 'public'
-        payload.visibility = 'public';
-    }
 
     await meta.blacklist.test(caller.ip);
     const shouldQueue = await posts.shouldQueue(caller.uid, payload);
@@ -111,10 +61,9 @@ topicsAPI.create = async function (caller, data) {
     socketHelpers.emitToUids('event:new_post', { posts: [result.postData] }, [caller.uid]);
     socketHelpers.emitToUids('event:new_topic', result.topicData, [caller.uid]);
     socketHelpers.notifyNew(caller.uid, 'newTopic', { posts: [result.postData], topic: result.topicData });
-    
+
     return result.topicData;
 };
-
 
 topicsAPI.reply = async function (caller, data) {
     if (!data || !data.tid || (meta.config.minimumPostLength !== 0 && !data.content)) {

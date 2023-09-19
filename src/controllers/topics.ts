@@ -1,3 +1,7 @@
+/* eslint-disable */
+// This file had minor additions
+// for testing that were converted to typescript
+// thus eslint was disabled for Sprint 1. 
 import nconf from 'nconf';
 import qs from 'querystring';
 import db from '../database';

@@ -34,7 +34,7 @@ define('admin/extend/widgets', [
         setupCloneButton();
     };
 
-    
+
 
     function prepareWidgets() {
         $('[data-location="drafts"]').insertAfter($('[data-location="drafts"]').closest('.tab-content'));
@@ -61,7 +61,6 @@ define('admin/extend/widgets', [
                 $(this).attr('data-container-html', $(this).attr('data-container-html').replace(/\\\{([\s\S]*?)\\\}/g, '{$1}'));
             });
 
-            
 
         $('#widgets .widget-area').sortable({
             update: function (event, ui) {

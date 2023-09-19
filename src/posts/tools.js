@@ -6,6 +6,7 @@ module.exports = function (Posts) {
     Posts.tools = {};
 
     Posts.tools.delete = async function (uid, pid) {
+      
         return await togglePostDelete(uid, pid, true);
     };
 
@@ -29,10 +30,14 @@ module.exports = function (Posts) {
         }
 
         if (!canDelete.flag) {
+            console.log("ISDELETE");
+
             throw new Error(canDelete.message);
         }
         let post;
         if (isDelete) {
+            
+
             require('./cache').del(pid);
             post = await Posts.delete(pid, uid);
         } else {

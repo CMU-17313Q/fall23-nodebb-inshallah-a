@@ -362,20 +362,23 @@ if (document.readyState === 'loading') {
             data = blockName;
             blockName = undefined;
         }
-
         return new Promise((resolve, reject) => {
             require(['translator', 'benchpress'], function (translator, Benchpress) {
+            
+
                 Benchpress.render(template, data, blockName)
                     .then(rendered => translator.translate(rendered))
                     .then(translated => translator.unescape(translated))
                     .then(resolve, reject);
+                    
+
             });
         }).then((html) => {
             html = $(html);
             if (callback && typeof callback === 'function') {
                 setTimeout(callback, 0, html);
             }
-
+            console.log("OH NOOO");
             return html;
         });
     };

@@ -1,5 +1,4 @@
 "use strict";
-/* eslint-disable */
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -33,6 +32,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable */
+// This file had minor additions
+// for testing that were converted to typescript
+// thus eslint was disabled for Sprint 1. 
 const _ = __importStar(require("lodash"));
 const db = require('../database');
 const utils = require('../utils');
