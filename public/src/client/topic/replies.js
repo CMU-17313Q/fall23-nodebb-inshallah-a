@@ -61,11 +61,10 @@ define('forum/topic/replies', ['forum/topic/posts', 'hooks', 'alerts'], function
         if (!post) {
             return;
         }
-        console.log("Something is wrong here");
-
+        // for debugging
+        console.log('Something is wrong here');
         incrementCount(post, 1);
         data.hideReplies = config.hasOwnProperty('showNestedReplies') ? !config.showNestedReplies : true;
-        data.global = "";
         app.parseAndTranslate('topic', 'posts', data, function (html) {
             const replies = $('[component="post"][data-pid="' + post.toPid + '"] [component="post/replies"]').first();
             if (replies.length) {

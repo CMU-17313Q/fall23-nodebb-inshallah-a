@@ -131,17 +131,12 @@ postsAPI.restore = async function (caller, data) {
 };
 
 async function deleteOrRestore(caller, data, params) {
-
-
     if (!data || !data.pid) {
-
         throw new Error('[[error:invalid-data]]');
     }
-
     const postData = await posts.tools[params.command](caller.uid, data.pid);
+    // debugging
     console.log(false);
-
-
     const results = await isMainAndLastPost(data.pid);
     if (results.isMain && results.isLast) {
         await deleteOrRestoreTopicOf(params.command, data.pid, caller);
