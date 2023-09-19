@@ -161,7 +161,7 @@ before(async function () {
     }
 
     // Randomly started failing
-    //await meta.dependencies.check();
+    // await meta.dependencies.check();
 
     const webserver = require('../../src/webserver');
     const sockets = require('../../src/socket.io');
