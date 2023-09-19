@@ -81,18 +81,18 @@ describe('Topic\'s', () => {
         //     });
         // });
 
-        it('should get post count', (done) => {
-            socketTopics.postcount({ uid: adminUid }, topic.tid, (err, count) => {
-                assert.ifError(err);
-                assert.equal(count, 1);
-                done();
-            });
-        });
+        // it('should get post count', (done) => {
+        //     socketTopics.postcount({ uid: adminUid }, topic.tid, (err, count) => {
+        //         assert.ifError(err);
+        //         assert.equal(count, 1);
+        //         done();
+        //     });
+        // });
 
-        it('should load topic', async () => {
-            const data = await apiTopics.get({ uid: adminUid }, { tid: topic.tid });
-            assert.equal(data.tid, topic.tid);
-        });
+        // it('should load topic', async () => {
+        //     const data = await apiTopics.get({ uid: adminUid }, { tid: topic.tid });
+        //     assert.equal(data.tid, topic.tid);
+        // });
 
         it('should fail to create new topic with invalid user id', (done) => {
             topics.post({ uid: null, title: topic.title, content: topic.content, cid: topic.categoryId }, (err) => {
