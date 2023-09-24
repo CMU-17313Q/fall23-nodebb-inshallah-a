@@ -227,74 +227,74 @@ describe('Notifications', () => {
         });
     });
 
-    // it('should link to the first unread post in a watched topic', (done) => {
-    //     const categories = require('../src/categories');
-    //     const topics = require('../src/topics');
-    //     let watcherUid;
-    //     let cid;
-    //     let tid;
-    //     let pid;
+    it('should link to the first unread post in a watched topic', (done) => {
+        const categories = require('../src/categories');
+        const topics = require('../src/topics');
+        let watcherUid;
+        let cid;
+        let tid;
+        let pid;
 
-    //     async.waterfall([
-    //         function (next) {
-    //             user.create({ username: 'watcher' }, next);
-    //         },
-    //         function (_watcherUid, next) {
-    //             watcherUid = _watcherUid;
+        async.waterfall([
+            function (next) {
+                user.create({ username: 'watcher' }, next);
+            },
+            function (_watcherUid, next) {
+                watcherUid = _watcherUid;
 
-    //             categories.create({
-    //                 name: 'Test Category',
-    //                 description: 'Test category created by testing script',
-    //             }, next);
-    //         },
-    //         function (category, next) {
-    //             cid = category.cid;
+                categories.create({
+                    name: 'Test Category',
+                    description: 'Test category created by testing script',
+                }, next);
+            },
+            function (category, next) {
+                cid = category.cid;
 
-    //             topics.post({
-    //                 uid: watcherUid,
-    //                 cid: cid,
-    //                 title: 'Test Topic Title',
-    //                 content: 'The content of test topic',
-    //             }, next);
-    //         },
-    //         function (topic, next) {
-    //             tid = topic.topicData.tid;
+                topics.post({
+                    uid: watcherUid,
+                    cid: cid,
+                    title: 'Test Topic Title',
+                    content: 'The content of test topic',
+                }, next);
+            },
+            function (topic, next) {
+                tid = topic.topicData.tid;
 
-    //             topics.follow(tid, watcherUid, next);
-    //         },
-    //         function (next) {
-    //             topics.reply({
-    //                 uid: uid,
-    //                 content: 'This is the first reply.',
-    //                 tid: tid,
-    //             }, next);
-    //         },
-    //         function (post, next) {
-    //             pid = post.pid;
+                topics.follow(tid, watcherUid, next);
+            },
+            function (next) {
+                topics.reply({
+                    uid: uid,
+                    content: 'This is the first reply.',
+                    tid: tid,
+                }, next);
+            },
+            function (post, next) {
+                pid = post.pid;
 
-    //             topics.reply({
-    //                 uid: uid,
-    //                 content: 'This is the second reply.',
-    //                 tid: tid,
-    //             }, next);
-    //         },
-    //         function (post, next) {
-    //             // notifications are sent asynchronously with a 1 second delay.
-    //             setTimeout(next, 3000);
-    //         },
-    //         function (next) {
-    //             user.notifications.get(watcherUid, next);
-    //         },
-    //         function (notifications, next) {
-    //             assert.equal(notifications.unread.length, 1, 'there should be 1 unread notification');
-    //             assert.equal(`${nconf.get('relative_path')}/post/${pid}`, notifications.unread[0].path, 'the notification should link to the first unread post');
-    //             next();
-    //         },
-    //     ], (err) => {
-    //         assert.ifError(err);
-    //         done();
-    //     });
-    // });
+                topics.reply({
+                    uid: uid,
+                    content: 'This is the second reply.',
+                    tid: tid,
+                }, next);
+            },
+            function (post, next) {
+                // notifications are sent asynchronously with a 1 second delay.
+                setTimeout(next, 3000);
+            },
+            function (next) {
+                user.notifications.get(watcherUid, next);
+            },
+            function (notifications, next) {
+                assert.equal(notifications.unread.length, 1, 'there should be 1 unread notification');
+                assert.equal(`${nconf.get('relative_path')}/post/${pid}`, notifications.unread[0].path, 'the notification should link to the first unread post');
+                next();
+            },
+        ], (err) => {
+            assert.ifError(err);
+            done();
+        });
+    });
 
     it('should get notification by nid', (done) => {
         socketNotifications.get({ uid: uid }, { nids: [notification.nid] }, (err, data) => {
@@ -404,42 +404,42 @@ describe('Notifications', () => {
         });
     });
 
-    // it('should send notification to followers of user when he posts', (done) => {
-    //     let followerUid;
-    //     async.waterfall([
-    //         function (next) {
-    //             user.create({ username: 'follower' }, next);
-    //         },
-    //         function (_followerUid, next) {
-    //             followerUid = _followerUid;
-    //             user.follow(followerUid, uid, next);
-    //         },
-    //         function (next) {
-    //             categories.create({
-    //                 name: 'Test Category',
-    //                 description: 'Test category created by testing script',
-    //             }, next);
-    //         },
-    //         function (category, next) {
-    //             topics.post({
-    //                 uid: uid,
-    //                 cid: category.cid,
-    //                 title: 'Test Topic Title',
-    //                 content: 'The content of test topic',
-    //             }, next);
-    //         },
-    //         function (data, next) {
-    //             setTimeout(next, 1100);
-    //         },
-    //         function (next) {
-    //             user.notifications.getAll(followerUid, '', next);
-    //         },
-    //     ], (err, data) => {
-    //         assert.ifError(err);
-    //         assert(data);
-    //         done();
-    //     });
-    // });
+    it('should send notification to followers of user when he posts', (done) => {
+        let followerUid;
+        async.waterfall([
+            function (next) {
+                user.create({ username: 'follower' }, next);
+            },
+            function (_followerUid, next) {
+                followerUid = _followerUid;
+                user.follow(followerUid, uid, next);
+            },
+            function (next) {
+                categories.create({
+                    name: 'Test Category',
+                    description: 'Test category created by testing script',
+                }, next);
+            },
+            function (category, next) {
+                topics.post({
+                    uid: uid,
+                    cid: category.cid,
+                    title: 'Test Topic Title',
+                    content: 'The content of test topic',
+                }, next);
+            },
+            function (data, next) {
+                setTimeout(next, 1100);
+            },
+            function (next) {
+                user.notifications.getAll(followerUid, '', next);
+            },
+        ], (err, data) => {
+            assert.ifError(err);
+            assert(data);
+            done();
+        });
+    });
 
     it('should send welcome notification', (done) => {
         meta.config.welcomeNotification = 'welcome to the forums';

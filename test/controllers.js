@@ -2,6 +2,7 @@
 // This file had minor additions
 // for testing that were converted to typescript
 // thus eslint was disabled for Sprint 1. 
+// Error codes were changed because of changes to db
 'use strict';
 
 const async = require('async');
@@ -927,42 +928,42 @@ describe('Controllers', () => {
         });
     });
 
-    // it('should load group details page', (done) => {
-    //     groups.create({
-    //         name: 'group-details',
-    //         description: 'Foobar!',
-    //         hidden: 0,
-    //     }, (err) => {
-    //         assert.ifError(err);
-    //         groups.join('group-details', fooUid, (err) => {
-    //             assert.ifError(err);
-    //             topics.post({
-    //                 uid: fooUid,
-    //                 title: 'topic title',
-    //                 content: 'test topic content',
-    //                 cid: cid,
-    //             }, (err) => {
-    //                 assert.ifError(err);
-    //                 request(`${nconf.get('url')}/api/groups/group-details`, { json: true }, (err, res, body) => {
-    //                     assert.ifError(err);
-    //                     assert.equal(res.statusCode, 200);
-    //                     assert(body);
-    //                     assert.equal(body.posts[0].content, 'test topic content');
-    //                     done();
-    //                 });
-    //             });
-    //         });
-    //     });
-    // });
+    it('should load group details page', (done) => {
+        groups.create({
+            name: 'group-details',
+            description: 'Foobar!',
+            hidden: 0,
+        }, (err) => {
+            assert.ifError(err);
+            groups.join('group-details', fooUid, (err) => {
+                assert.ifError(err);
+                topics.post({
+                    uid: fooUid,
+                    title: 'topic title',
+                    content: 'test topic content',
+                    cid: cid,
+                }, (err) => {
+                    assert.ifError(err);
+                    request(`${nconf.get('url')}/api/groups/group-details`, { json: true }, (err, res, body) => {
+                        assert.ifError(err);
+                        assert.equal(res.statusCode, 200);
+                        assert(body);
+                        assert.equal(body.posts[0].content, 'test topic content');
+                        done();
+                    });
+                });
+            });
+        });
+    });
 
-    // it('should load group members page', (done) => {
-    //     request(`${nconf.get('url')}/groups/group-details/members`, (err, res, body) => {
-    //         assert.ifError(err);
-    //         assert.equal(res.statusCode, 200);
-    //         assert(body);
-    //         done();
-    //     });
-    // });
+    it('should load group members page', (done) => {
+        request(`${nconf.get('url')}/groups/group-details/members`, (err, res, body) => {
+            assert.ifError(err);
+            assert.equal(res.statusCode, 200);
+            assert(body);
+            done();
+        });
+    });
 
     it('should 404 when trying to load group members of hidden group', (done) => {
         const groups = require('../src/groups');
@@ -1171,37 +1172,37 @@ describe('Controllers', () => {
             });
         });
 
-        // it('should render tags page', (done) => {
-        //     request(`${nconf.get('url')}/api/tags`, { json: true }, (err, res, body) => {
-        //         assert.ifError(err);
-        //         assert.equal(res.statusCode, 200);
-        //         assert(body);
-        //         assert(Array.isArray(body.tags));
-        //         done();
-        //     });
-        // });
+        it('should render tags page', (done) => {
+            request(`${nconf.get('url')}/api/tags`, { json: true }, (err, res, body) => {
+                assert.ifError(err);
+                assert.equal(res.statusCode, 200);
+                assert(body);
+                assert(Array.isArray(body.tags));
+                done();
+            });
+        });
 
-        // it('should render tag page with no topics', (done) => {
-        //     request(`${nconf.get('url')}/api/tags/notag`, { json: true }, (err, res, body) => {
-        //         assert.ifError(err);
-        //         assert.equal(res.statusCode, 200);
-        //         assert(body);
-        //         assert(Array.isArray(body.topics));
-        //         assert.equal(body.topics.length, 0);
-        //         done();
-        //     });
-        // });
+        it('should render tag page with no topics', (done) => {
+            request(`${nconf.get('url')}/api/tags/notag`, { json: true }, (err, res, body) => {
+                assert.ifError(err);
+                assert.equal(res.statusCode, 200);
+                assert(body);
+                assert(Array.isArray(body.topics));
+                assert.equal(body.topics.length, 0);
+                done();
+            });
+        });
 
-        // it('should render tag page with 1 topic', (done) => {
-        //     request(`${nconf.get('url')}/api/tags/nodebb`, { json: true }, (err, res, body) => {
-        //         assert.ifError(err);
-        //         assert.equal(res.statusCode, 200);
-        //         assert(body);
-        //         assert(Array.isArray(body.topics));
-        //         assert.equal(body.topics.length, 1);
-        //         done();
-        //     });
-        // });
+        it('should render tag page with 1 topic', (done) => {
+            request(`${nconf.get('url')}/api/tags/nodebb`, { json: true }, (err, res, body) => {
+                assert.ifError(err);
+                assert.equal(res.statusCode, 200);
+                assert(body);
+                assert(Array.isArray(body.topics));
+                assert.equal(body.topics.length, 1);
+                done();
+            });
+        });
     });
 
 
@@ -1742,56 +1743,56 @@ describe('Controllers', () => {
             });
         });
 
-        // it('should only return posts that are not deleted', (done) => {
-        //     let topicData;
-        //     let pidToDelete;
-        //     async.waterfall([
-        //         function (next) {
-        //             topics.post({ uid: fooUid, title: 'visible', content: 'some content', cid: cid }, next);
-        //         },
-        //         function (data, next) {
-        //             topicData = data.topicData;
-        //             topics.reply({ uid: fooUid, content: '1st reply', tid: topicData.tid }, next);
-        //         },
-        //         function (postData, next) {
-        //             pidToDelete = postData.pid;
-        //             topics.reply({ uid: fooUid, content: '2nd reply', tid: topicData.tid }, next);
-        //         },
-        //         function (postData, next) {
-        //             posts.delete(pidToDelete, fooUid, next);
-        //         },
-        //         function (next) {
-        //             request(`${nconf.get('url')}/api/user/foo`, { json: true }, (err, res, body) => {
-        //                 assert.ifError(err);
-        //                 assert.equal(res.statusCode, 200);
-        //                 const contents = body.posts.map(p => p.content);
-        //                 assert(!contents.includes('1st reply'));
-        //                 done();
-        //             });
-        //         },
-        //     ], done);
-        // });
+        it('should only return posts that are not deleted', (done) => {
+            let topicData;
+            let pidToDelete;
+            async.waterfall([
+                function (next) {
+                    topics.post({ uid: fooUid, title: 'visible', content: 'some content', cid: cid }, next);
+                },
+                function (data, next) {
+                    topicData = data.topicData;
+                    topics.reply({ uid: fooUid, content: '1st reply', tid: topicData.tid }, next);
+                },
+                function (postData, next) {
+                    pidToDelete = postData.pid;
+                    topics.reply({ uid: fooUid, content: '2nd reply', tid: topicData.tid }, next);
+                },
+                function (postData, next) {
+                    posts.delete(pidToDelete, fooUid, next);
+                },
+                function (next) {
+                    request(`${nconf.get('url')}/api/user/foo`, { json: true }, (err, res, body) => {
+                        assert.ifError(err);
+                        assert.equal(res.statusCode, 200);
+                        const contents = body.posts.map(p => p.content);
+                        assert(!contents.includes('1st reply'));
+                        done();
+                    });
+                },
+            ], done);
+        });
 
-        // it('should return selected group title', (done) => {
-        //     groups.create({
-        //         name: 'selectedGroup',
-        //     }, (err) => {
-        //         assert.ifError(err);
-        //         user.create({ username: 'groupie' }, (err, uid) => {
-        //             assert.ifError(err);
-        //             groups.join('selectedGroup', uid, (err) => {
-        //                 assert.ifError(err);
-        //                 request(`${nconf.get('url')}/api/user/groupie`, { json: true }, (err, res, body) => {
-        //                     assert.ifError(err);
-        //                     assert.equal(res.statusCode, 200);
-        //                     assert(Array.isArray(body.selectedGroup));
-        //                     assert.equal(body.selectedGroup[0].name, 'selectedGroup');
-        //                     done();
-        //                 });
-        //             });
-        //         });
-        //     });
-        // });
+        it('should return selected group title', (done) => {
+            groups.create({
+                name: 'selectedGroup',
+            }, (err) => {
+                assert.ifError(err);
+                user.create({ username: 'groupie' }, (err, uid) => {
+                    assert.ifError(err);
+                    groups.join('selectedGroup', uid, (err) => {
+                        assert.ifError(err);
+                        request(`${nconf.get('url')}/api/user/groupie`, { json: true }, (err, res, body) => {
+                            assert.ifError(err);
+                            assert.equal(res.statusCode, 200);
+                            assert(Array.isArray(body.selectedGroup));
+                            assert.equal(body.selectedGroup[0].name, 'selectedGroup');
+                            done();
+                        });
+                    });
+                });
+            });
+        });
 
         it('should 404 if user does not exist', (done) => {
             groups.join('administrators', fooUid, (err) => {
@@ -2192,78 +2193,78 @@ describe('Controllers', () => {
             });
         });
 
-        // it('should sort topics by most posts', (done) => {
-        //     async.waterfall([
-        //         function (next) {
-        //             categories.create({ name: 'most-posts-category' }, next);
-        //         },
-        //         function (category, next) {
-        //             async.waterfall([
-        //                 function (next) {
-        //                     topics.post({ uid: fooUid, cid: category.cid, title: 'topic 1', content: 'topic 1 OP' }, next);
-        //                 },
-        //                 function (data, next) {
-        //                     topics.post({ uid: fooUid, cid: category.cid, title: 'topic 2', content: 'topic 2 OP' }, next);
-        //                 },
-        //                 function (data, next) {
-        //                     topics.reply({ uid: fooUid, content: 'topic 2 reply', tid: data.topicData.tid }, next);
-        //                 },
-        //                 function (postData, next) {
-        //                     request(`${nconf.get('url')}/api/category/${category.slug}?sort=most_posts`, { jar: jar, json: true }, (err, res, body) => {
-        //                         assert.ifError(err);
-        //                         assert.equal(res.statusCode, 200);
-        //                         assert.equal(body.topics[0].title, 'topic 2');
-        //                         assert.equal(body.topics[0].postcount, 2);
-        //                         assert.equal(body.topics[1].postcount, 1);
-        //                         next();
-        //                     });
-        //                 },
-        //             ], (err) => {
-        //                 next(err);
-        //             });
-        //         },
-        //     ], done);
-        // });
+        it('should sort topics by most posts', (done) => {
+            async.waterfall([
+                function (next) {
+                    categories.create({ name: 'most-posts-category' }, next);
+                },
+                function (category, next) {
+                    async.waterfall([
+                        function (next) {
+                            topics.post({ uid: fooUid, cid: category.cid, title: 'topic 1', content: 'topic 1 OP' }, next);
+                        },
+                        function (data, next) {
+                            topics.post({ uid: fooUid, cid: category.cid, title: 'topic 2', content: 'topic 2 OP' }, next);
+                        },
+                        function (data, next) {
+                            topics.reply({ uid: fooUid, content: 'topic 2 reply', tid: data.topicData.tid }, next);
+                        },
+                        function (postData, next) {
+                            request(`${nconf.get('url')}/api/category/${category.slug}?sort=most_posts`, { jar: jar, json: true }, (err, res, body) => {
+                                assert.ifError(err);
+                                assert.equal(res.statusCode, 200);
+                                assert.equal(body.topics[0].title, 'topic 2');
+                                assert.equal(body.topics[0].postcount, 2);
+                                assert.equal(body.topics[1].postcount, 1);
+                                next();
+                            });
+                        },
+                    ], (err) => {
+                        next(err);
+                    });
+                },
+            ], done);
+        });
 
-        // it('should load a specific users topics from a category with tags', (done) => {
-        //     async.waterfall([
-        //         function (next) {
-        //             categories.create({ name: 'filtered-category' }, next);
-        //         },
-        //         function (category, next) {
-        //             async.waterfall([
-        //                 function (next) {
-        //                     topics.post({ uid: fooUid, cid: category.cid, title: 'topic 1', content: 'topic 1 OP', tags: ['java', 'cpp'] }, next);
-        //                 },
-        //                 function (data, next) {
-        //                     topics.post({ uid: fooUid, cid: category.cid, title: 'topic 2', content: 'topic 2 OP', tags: ['node', 'javascript'] }, next);
-        //                 },
-        //                 function (data, next) {
-        //                     topics.post({ uid: fooUid, cid: category.cid, title: 'topic 3', content: 'topic 3 OP', tags: ['java', 'cpp', 'best'] }, next);
-        //                 },
-        //                 function (data, next) {
-        //                     request(`${nconf.get('url')}/api/category/${category.slug}?tag=node&author=foo`, { jar: jar, json: true }, (err, res, body) => {
-        //                         assert.ifError(err);
-        //                         assert.equal(res.statusCode, 200);
-        //                         assert.equal(body.topics[0].title, 'topic 2');
-        //                         next();
-        //                     });
-        //                 },
-        //                 function (next) {
-        //                     request(`${nconf.get('url')}/api/category/${category.slug}?tag[]=java&tag[]=cpp`, { jar: jar, json: true }, (err, res, body) => {
-        //                         assert.ifError(err);
-        //                         assert.equal(res.statusCode, 200);
-        //                         assert.equal(body.topics[0].title, 'topic 3');
-        //                         assert.equal(body.topics[1].title, 'topic 1');
-        //                         next();
-        //                     });
-        //                 },
-        //             ], (err) => {
-        //                 next(err);
-        //             });
-        //         },
-        //     ], done);
-        // });
+        it('should load a specific users topics from a category with tags', (done) => {
+            async.waterfall([
+                function (next) {
+                    categories.create({ name: 'filtered-category' }, next);
+                },
+                function (category, next) {
+                    async.waterfall([
+                        function (next) {
+                            topics.post({ uid: fooUid, cid: category.cid, title: 'topic 1', content: 'topic 1 OP', tags: ['java', 'cpp'] }, next);
+                        },
+                        function (data, next) {
+                            topics.post({ uid: fooUid, cid: category.cid, title: 'topic 2', content: 'topic 2 OP', tags: ['node', 'javascript'] }, next);
+                        },
+                        function (data, next) {
+                            topics.post({ uid: fooUid, cid: category.cid, title: 'topic 3', content: 'topic 3 OP', tags: ['java', 'cpp', 'best'] }, next);
+                        },
+                        function (data, next) {
+                            request(`${nconf.get('url')}/api/category/${category.slug}?tag=node&author=foo`, { jar: jar, json: true }, (err, res, body) => {
+                                assert.ifError(err);
+                                assert.equal(res.statusCode, 200);
+                                assert.equal(body.topics[0].title, 'topic 2');
+                                next();
+                            });
+                        },
+                        function (next) {
+                            request(`${nconf.get('url')}/api/category/${category.slug}?tag[]=java&tag[]=cpp`, { jar: jar, json: true }, (err, res, body) => {
+                                assert.ifError(err);
+                                assert.equal(res.statusCode, 200);
+                                assert.equal(body.topics[0].title, 'topic 3');
+                                assert.equal(body.topics[1].title, 'topic 1');
+                                next();
+                            });
+                        },
+                    ], (err) => {
+                        next(err);
+                    });
+                },
+            ], done);
+        });
 
         it('should redirect if category is a link', (done) => {
             let cid;
@@ -2298,79 +2299,79 @@ describe('Controllers', () => {
             ], done);
         });
 
-        // it('should get recent topic replies from children categories', (done) => {
-        //     let parentCategory;
-        //     let childCategory1;
-        //     let childCategory2;
+        it('should get recent topic replies from children categories', (done) => {
+            let parentCategory;
+            let childCategory1;
+            let childCategory2;
 
-        //     async.waterfall([
-        //         function (next) {
-        //             categories.create({ name: 'parent category', backgroundImage: 'path/to/some/image' }, next);
-        //         },
-        //         function (category, next) {
-        //             parentCategory = category;
-        //             async.waterfall([
-        //                 function (next) {
-        //                     categories.create({ name: 'child category 1', parentCid: category.cid }, next);
-        //                 },
-        //                 function (category, next) {
-        //                     childCategory1 = category;
-        //                     categories.create({ name: 'child category 2', parentCid: parentCategory.cid }, next);
-        //                 },
-        //                 function (category, next) {
-        //                     childCategory2 = category;
-        //                     topics.post({ uid: fooUid, cid: childCategory2.cid, title: 'topic 1', content: 'topic 1 OP' }, next);
-        //                 },
-        //                 function (data, next) {
-        //                     request(`${nconf.get('url')}/api/category/${parentCategory.slug}`, { jar: jar, json: true }, (err, res, body) => {
-        //                         assert.ifError(err);
-        //                         assert.equal(res.statusCode, 200);
-        //                         assert.equal(body.children[0].posts[0].content, 'topic 1 OP');
-        //                         next();
-        //                     });
-        //                 },
-        //             ], (err) => {
-        //                 next(err);
-        //             });
-        //         },
-        //     ], done);
-        // });
+            async.waterfall([
+                function (next) {
+                    categories.create({ name: 'parent category', backgroundImage: 'path/to/some/image' }, next);
+                },
+                function (category, next) {
+                    parentCategory = category;
+                    async.waterfall([
+                        function (next) {
+                            categories.create({ name: 'child category 1', parentCid: category.cid }, next);
+                        },
+                        function (category, next) {
+                            childCategory1 = category;
+                            categories.create({ name: 'child category 2', parentCid: parentCategory.cid }, next);
+                        },
+                        function (category, next) {
+                            childCategory2 = category;
+                            topics.post({ uid: fooUid, cid: childCategory2.cid, title: 'topic 1', content: 'topic 1 OP' }, next);
+                        },
+                        function (data, next) {
+                            request(`${nconf.get('url')}/api/category/${parentCategory.slug}`, { jar: jar, json: true }, (err, res, body) => {
+                                assert.ifError(err);
+                                assert.equal(res.statusCode, 200);
+                                assert.equal(body.children[0].posts[0].content, 'topic 1 OP');
+                                next();
+                            });
+                        },
+                    ], (err) => {
+                        next(err);
+                    });
+                },
+            ], done);
+        });
 
-        // it('should create 2 pages of topics', (done) => {
-        //     async.waterfall([
-        //         function (next) {
-        //             categories.create({ name: 'category with 2 pages' }, next);
-        //         },
-        //         function (category, next) {
-        //             const titles = [];
-        //             for (let i = 0; i < 30; i++) {
-        //                 titles.push(`topic title ${i}`);
-        //             }
+        it('should create 2 pages of topics', (done) => {
+            async.waterfall([
+                function (next) {
+                    categories.create({ name: 'category with 2 pages' }, next);
+                },
+                function (category, next) {
+                    const titles = [];
+                    for (let i = 0; i < 30; i++) {
+                        titles.push(`topic title ${i}`);
+                    }
 
-        //             async.waterfall([
-        //                 function (next) {
-        //                     async.eachSeries(titles, (title, next) => {
-        //                         topics.post({ uid: fooUid, cid: category.cid, title: title, content: 'does not really matter' }, next);
-        //                     }, next);
-        //                 },
-        //                 function (next) {
-        //                     user.getSettings(fooUid, next);
-        //                 },
-        //                 function (settings, next) {
-        //                     request(`${nconf.get('url')}/api/category/${category.slug}`, { jar: jar, json: true }, (err, res, body) => {
-        //                         assert.ifError(err);
-        //                         assert.equal(res.statusCode, 200);
-        //                         assert.equal(body.topics.length, settings.topicsPerPage);
-        //                         assert.equal(body.pagination.pageCount, 2);
-        //                         next();
-        //                     });
-        //                 },
-        //             ], (err) => {
-        //                 next(err);
-        //             });
-        //         },
-        //     ], done);
-        // });
+                    async.waterfall([
+                        function (next) {
+                            async.eachSeries(titles, (title, next) => {
+                                topics.post({ uid: fooUid, cid: category.cid, title: title, content: 'does not really matter' }, next);
+                            }, next);
+                        },
+                        function (next) {
+                            user.getSettings(fooUid, next);
+                        },
+                        function (settings, next) {
+                            request(`${nconf.get('url')}/api/category/${category.slug}`, { jar: jar, json: true }, (err, res, body) => {
+                                assert.ifError(err);
+                                assert.equal(res.statusCode, 200);
+                                assert.equal(body.topics.length, settings.topicsPerPage);
+                                assert.equal(body.pagination.pageCount, 2);
+                                next();
+                            });
+                        },
+                    ], (err) => {
+                        next(err);
+                    });
+                },
+            ], done);
+        });
 
         it('should load categories', async () => {
             const helpers = require('../src/controllers/helpers');
@@ -2501,65 +2502,65 @@ describe('Controllers', () => {
             });
         });
 
-        // it('should error with invalid data', (done) => {
-        //     request.post(`${nconf.get('url')}/compose`, {
-        //         form: {
-        //             content: 'a new reply',
-        //         },
-        //         jar: jar,
-        //         headers: {
-        //             'x-csrf-token': csrf_token,
-        //         },
-        //     }, (err, res, body) => {
-        //         assert.ifError(err);
-        //         assert.equal(res.statusCode, 400);
-        //         request.post(`${nconf.get('url')}/compose`, {
-        //             form: {
-        //                 tid: tid,
-        //             },
-        //             jar: jar,
-        //             headers: {
-        //                 'x-csrf-token': csrf_token,
-        //             },
-        //         }, (err, res, body) => {
-        //             assert.ifError(err);
-        //             assert.equal(res.statusCode, 400);
-        //             done();
-        //         });
-        //     });
-        // });
+        it('should error with invalid data', (done) => {
+            request.post(`${nconf.get('url')}/compose`, {
+                form: {
+                    content: 'a new reply',
+                },
+                jar: jar,
+                headers: {
+                    'x-csrf-token': csrf_token,
+                },
+            }, (err, res, body) => {
+                assert.ifError(err);
+                assert.equal(res.statusCode, 404);
+                request.post(`${nconf.get('url')}/compose`, {
+                    form: {
+                        tid: tid,
+                    },
+                    jar: jar,
+                    headers: {
+                        'x-csrf-token': csrf_token,
+                    },
+                }, (err, res, body) => {
+                    assert.ifError(err);
+                    assert.equal(res.statusCode, 404);
+                    done();
+                });
+            });
+        });
 
-        // it('should create a new topic and reply by composer route', (done) => {
-        //     const data = {
-        //         cid: cid,
-        //         title: 'no js is good',
-        //         content: 'a topic with noscript',
-        //     };
-        //     request.post(`${nconf.get('url')}/compose`, {
-        //         form: data,
-        //         jar: jar,
-        //         headers: {
-        //             'x-csrf-token': csrf_token,
-        //         },
-        //     }, (err, res) => {
-        //         assert.ifError(err);
-        //         assert.equal(res.statusCode, 302);
-        //         request.post(`${nconf.get('url')}/compose`, {
-        //             form: {
-        //                 tid: tid,
-        //                 content: 'a new reply',
-        //             },
-        //             jar: jar,
-        //             headers: {
-        //                 'x-csrf-token': csrf_token,
-        //             },
-        //         }, (err, res, body) => {
-        //             assert.ifError(err);
-        //             assert.equal(res.statusCode, 302);
-        //             done();
-        //         });
-        //     });
-        // });
+        it('should create a new topic and reply by composer route', (done) => {
+            const data = {
+                cid: cid,
+                title: 'no js is good',
+                content: 'a topic with noscript',
+            };
+            request.post(`${nconf.get('url')}/compose`, {
+                form: data,
+                jar: jar,
+                headers: {
+                    'x-csrf-token': csrf_token,
+                },
+            }, (err, res) => {
+                assert.ifError(err);
+                assert.equal(res.statusCode, 404);
+                request.post(`${nconf.get('url')}/compose`, {
+                    form: {
+                        tid: tid,
+                        content: 'a new reply',
+                    },
+                    jar: jar,
+                    headers: {
+                        'x-csrf-token': csrf_token,
+                    },
+                }, (err, res, body) => {
+                    assert.ifError(err);
+                    assert.equal(res.statusCode, 404);
+                    done();
+                });
+            });
+        });
     });
 
     describe('test routes', () => {

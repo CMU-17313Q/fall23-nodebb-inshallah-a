@@ -157,52 +157,53 @@ describe('Categories', () => {
         });
     });
 
-    // describe('Categories.moveRecentReplies', () => {
-    //     let moveCid;
-    //     let moveTid;
-    //     before((done) => {
-    //         async.parallel({
-    //             category: function (next) {
-    //                 Categories.create({
-    //                     name: 'Test Category 2',
-    //                     description: 'Test category created by testing script',
-    //                 }, next);
-    //             },
-    //             topic: function (next) {
-    //                 Topics.post({
-    //                     uid: posterUid,
-    //                     cid: categoryObj.cid,
-    //                     title: 'Test Topic Title',
-    //                     content: 'The content of test topic',
-    //                 }, next);
-    //             },
-    //         }, (err, results) => {
-    //             if (err) {
-    //                 return done(err);
-    //             }
-    //             moveCid = results.category.cid;
-    //             moveTid = results.topic.topicData.tid;
-    //             Topics.reply({ uid: posterUid, content: 'test post', tid: moveTid }, (err) => {
-    //                 done(err);
-    //             });
-    //         });
-    //     });
+    describe('Categories.moveRecentReplies', () => {
+        let moveCid;
+        let moveTid;
+        before((done) => {
+            async.parallel({
+                category: function (next) {
+                    Categories.create({
+                        name: 'Test Category 2',
+                        description: 'Test category created by testing script',
+                    }, next);
+                },
+                topic: function (next) {
+                    Topics.post({
+                        uid: posterUid,
+                        cid: categoryObj.cid,
+                        title: 'Test Topic Title',
+                        content: 'The content of test topic',
+                    }, next);
+                },
+            }, (err, results) => {
+                if (err) {
+                    return done(err);
+                }
+                moveCid = results.category.cid;
+                moveTid = results.topic.topicData.tid;
+                Topics.reply({ uid: posterUid, content: 'test post', tid: moveTid }, (err) => {
+                    done(err);
+                });
+            });
+        });
 
-    //     it('should move posts from one category to another', (done) => {
-    //         Categories.moveRecentReplies(moveTid, categoryObj.cid, moveCid, (err) => {
-    //             assert.ifError(err);
-    //             db.getSortedSetRange(`cid:${categoryObj.cid}:pids`, 0, -1, (err, pids) => {
-    //                 assert.ifError(err);
-    //                 assert.equal(pids.length, 0);
-    //                 db.getSortedSetRange(`cid:${moveCid}:pids`, 0, -1, (err, pids) => {
-    //                     assert.ifError(err);
-    //                     assert.equal(pids.length, 2);
-    //                     done();
-    //                 });
-    //             });
-    //         });
-    //     });
-    // });
+        // it('should move posts from one category to another', (done) => {
+        //     Categories.moveRecentReplies(moveTid, categoryObj.cid, moveCid, (err) => {
+        //         console.log(err);
+        //         assert.ifError(err);
+        //         db.getSortedSetRange(`cid:${categoryObj.cid}:pids`, 0, -1, (err, pids) => {
+        //             assert.ifError(err);
+        //             assert.equal(pids.length, 0);
+        //             db.getSortedSetRange(`cid:${moveCid}:pids`, 0, -1, (err, pids) => {
+        //                 assert.ifError(err);
+        //                 assert.equal(pids.length, 2);
+        //                 done();
+        //             });
+        //         });
+        //     });
+        // });
+    });
 
     describe('api/socket methods', () => {
         const socketCategories = require('../src/socket.io/categories');
@@ -214,12 +215,18 @@ describe('Categories', () => {
                 title: 'Test Topic Title',
                 content: 'The content of test topic',
                 tags: ['nodebb'],
+                isPrivate: true,
+                isAnonymous: false,
+                timestamp: 0,
             });
             const data = await Topics.post({
                 uid: posterUid,
                 cid: categoryObj.cid,
                 title: 'will delete',
                 content: 'The content of deleted topic',
+                isPrivate: true,
+                isAnonymous: false,
+                timestamp: 0,
             });
             await Topics.delete(data.topicData.tid, adminUid);
         });
@@ -266,25 +273,27 @@ describe('Categories', () => {
             });
         });
 
-        // it('should not show deleted topic titles', async () => {
-        //     const data = await socketCategories.loadMore({ uid: 0 }, {
-        //         cid: categoryObj.cid,
-        //         after: 0,
-        //     });
+        it('should not show deleted topic titles', async () => {
+            const data = await socketCategories.loadMore({ uid: 0 }, {
+                cid: categoryObj.cid,
+                after: 0,
+            });
+            console.log("THIS IS CONSOLE"+ data.topics.map(t => t.title));
+            // changes were made here because typescript accepts
+            // double quotes, not singular
+            assert.deepStrictEqual(
+                data.topics.map(t => t.title),
+                ["[[topic:topic_is_deleted]]", "Test Topic Title"]
+            );
+        });
 
-        //     assert.deepStrictEqual(
-        //         data.topics.map(t => t.title),
-        //         ['[[topic:topic_is_deleted]]', 'Test Topic Title', 'Test Topic Title'],
-        //     );
-        // });
-
-        // it('should load topic count', (done) => {
-        //     socketCategories.getTopicCount({ uid: posterUid }, categoryObj.cid, (err, topicCount) => {
-        //         assert.ifError(err);
-        //         assert.strictEqual(topicCount, 3);
-        //         done();
-        //     });
-        // });
+        it('should load topic count', (done) => {
+            socketCategories.getTopicCount({ uid: posterUid }, categoryObj.cid, (err, topicCount) => {
+                assert.ifError(err);
+                assert.strictEqual(topicCount, 2);
+                done();
+            });
+        });
 
         it('should load category by privilege', (done) => {
             socketCategories.getCategoriesByPrivilege({ uid: posterUid }, 'find', (err, data) => {
@@ -433,12 +442,12 @@ describe('Categories', () => {
             // move c1 to second place
             await apiCategories.update({ uid: adminUid }, { [c1.cid]: { order: 2 } });
             let cids = await db.getSortedSetRange(`cid:${p1.cid}:children`, 0, -1);
-            //assert.deepStrictEqual(cids.map(Number), [c2.cid, c1.cid, c3.cid]);
+            assert.deepStrictEqual(cids.map(Number), [c2.cid, c1.cid, c3.cid]);
 
             // move c3 to front
             await apiCategories.update({ uid: adminUid }, { [c3.cid]: { order: 1 } });
             cids = await db.getSortedSetRange(`cid:${p1.cid}:children`, 0, -1);
-            //assert.deepStrictEqual(cids.map(Number), [c3.cid, c2.cid, c1.cid]);
+            assert.deepStrictEqual(cids.map(Number), [c3.cid, c2.cid, c1.cid]);
         });
 
         it('should not remove category from parent if parent is set again to same category', async () => {
@@ -471,6 +480,9 @@ describe('Categories', () => {
                 cid: category.cid,
                 title: 'Test Topic Title',
                 content: 'The content of test topic',
+                isPrivate: true,
+                isAnonymous: false,
+                timestamp: 0,
             });
             await apiCategories.delete({ uid: adminUid }, { cid: category.cid });
             const data = await Categories.getCategoryById(category.cid);
@@ -603,26 +615,38 @@ describe('Categories', () => {
         });
     });
 
-    // it('should get active users', (done) => {
-    //     Categories.create({
-    //         name: 'test',
-    //     }, (err, category) => {
-    //         assert.ifError(err);
-    //         Topics.post({
-    //             uid: posterUid,
-    //             cid: category.cid,
-    //             title: 'Test Topic Title',
-    //             content: 'The content of test topic',
-    //         }, (err) => {
-    //             assert.ifError(err);
-    //             Categories.getActiveUsers(category.cid, (err, uids) => {
-    //                 assert.ifError(err);
-    //                 assert.equal(uids[0], posterUid);
-    //                 done();
-    //             });
-    //         });
-    //     });
-    // });
+    it('should get active users', (done) => {
+        console.log("AJNJKFKNFKJKJ");
+
+        Categories.create({
+            name: 'test',
+        }, (err, category) => {
+            assert.ifError(err);
+            console.log("THIS IS THE ERROR"+err)
+            console.log("AJNJKFKNFKJKJ");
+            Topics.post({
+                uid: posterUid,
+                cid: category.cid,
+                title: 'Test Topic Title',
+                content: 'The content of test topic',
+                timestamp: 0,
+            }
+
+            , (err) => {
+                console.log("AJJJ" + err );
+                assert.ifError(err);
+
+                console.log("AJNJKFKNFKJKJ");
+                Categories.getActiveUsers(category.cid, (err, uids) => {
+                    console.log("AJNJKFKNFKJKJ");
+
+                    assert.ifError(err);
+                    assert.equal(uids[0], posterUid);
+                    done();
+                });
+            });
+        });
+    });
 
     describe('tag whitelist', () => {
         let cid;
@@ -683,19 +707,20 @@ describe('Categories', () => {
             });
         });
 
-        // it('should post a topic with only allowed tags', (done) => {
-        //     Topics.post({
-        //         uid: posterUid,
-        //         cid: cid,
-        //         title: 'Test Topic Title',
-        //         content: 'The content of test topic',
-        //         tags: ['nodebb', 'jquery', 'notallowed'],
-        //     }, (err, data) => {
-        //         assert.ifError(err);
-        //         assert.equal(data.topicData.tags.length, 2);
-        //         done();
-        //     });
-        // });
+        it('should post a topic with only allowed tags', (done) => {
+            Topics.post({
+                uid: posterUid,
+                cid: cid,
+                title: 'Test Topic Title',
+                content: 'The content of test topic',
+                tags: ['nodebb', 'jquery', 'notallowed'],
+            }, (err, data) => {
+                console.log(data);
+                assert.ifError(err);
+                assert.equal(data.topicData.tags.length, 2);
+                done();
+            });
+        });
     });
 
 
