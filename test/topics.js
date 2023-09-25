@@ -416,6 +416,17 @@ describe('Topic\'s', () => {
                 done();
             });
         });
+        // code for testing sprint 2, ensuring the isUrgent attribute
+        // is an attribute of the topic object
+        it('should get the newly added isUrgent field for topic', (done) => {
+            topics.getTopicFields(newTopic.tid, ['isUrgent'], (err, data) => {
+                assert.ifError(err);
+                assert(Object.keys(data).length === 1);
+                assert(data.hasOwnProperty('isUrgent'));
+                done();
+            });
+        });
+        
 
         describe('.getTopicWithPosts', () => {
             let tid;
