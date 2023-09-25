@@ -426,6 +426,17 @@ describe('Topic\'s', () => {
                 done();
             });
         });
+
+        // code for testing sprint 2, ensuring the isResolved attribute for the topic
+        it('should get the newly added isResolved field for topic', (done) => {
+            topics.getTopicFields(newTopic.tid, ['isResolved'], (err, data) => {
+                assert.ifError(err);
+                assert(Object.keys(data).length === 1);
+                assert(data.hasOwnProperty('isResolved'));
+                done();
+            });
+        });
+        
         
 
         describe('.getTopicWithPosts', () => {
