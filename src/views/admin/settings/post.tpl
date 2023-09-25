@@ -31,7 +31,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urgent Button</title>
     <style>
-
+        /* Define the CSS style for the button */
         .urgent-button {
             background-color: #3498db;
             color: #fff;
@@ -40,26 +40,44 @@
             cursor: pointer;
         }
 
-        .urgent-button.clicked {
-            background-color: #e74c3c;
+        /* Define the CSS style for the urgent symbol */
+        .urgent-symbol {
+            color: red;
+            font-size: 24px;
+            margin-left: 5px;
         }
     </style>
 </head>
 <body>
-    <button id="isUrgentButton" class="urgent-button">isUrgent</button>
+
+    <div>
+        <button id="isUrgentButton" class="urgent-button">isUrgent</button>
+        <span id="urgentSymbol" class="urgent-symbol"></span>
+    </div>
 
     <script>
-   
+     
         const urgentButton = document.getElementById("isUrgentButton");
+        const urgentSymbol = document.getElementById("urgentSymbol");
 
-        
+
+        let isUrgent = false;
+
+
         urgentButton.addEventListener("click", function () {
+ 
+            isUrgent = !isUrgent;
 
-            urgentButton.classList.toggle("clicked");
+   
+            urgentSymbol.textContent = isUrgent ? "⚠️" : "";
+
+
+            urgentButton.style.backgroundColor = isUrgent ? "#e74c3c" : "#3498db";
         });
     </script>
 </body>
 </html>
+
 
 
 
