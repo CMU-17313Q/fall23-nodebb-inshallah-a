@@ -49,14 +49,14 @@
     </style>
 </head>
 <body>
-
+    <!-- Container for the button and urgent symbol -->
     <div>
         <button id="isUrgentButton" class="urgent-button">isUrgent</button>
         <span id="urgentSymbol" class="urgent-symbol"></span>
     </div>
 
     <script>
-     
+
         const urgentButton = document.getElementById("isUrgentButton");
         const urgentSymbol = document.getElementById("urgentSymbol");
 
@@ -65,13 +65,13 @@
 
 
         urgentButton.addEventListener("click", function () {
- 
+
             isUrgent = !isUrgent;
 
-   
+         
             urgentSymbol.textContent = isUrgent ? "⚠️" : "";
 
-
+       
             urgentButton.style.backgroundColor = isUrgent ? "#e74c3c" : "#3498db";
         });
     </script>

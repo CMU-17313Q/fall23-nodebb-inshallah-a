@@ -14,7 +14,26 @@
     <!-- IMPORT partials/topic/sort.tpl -->
 
     <div class="inline-block">
-    <!-- IMPORT partials/thread_tools.tpl -->
+        <!-- IMPORT partials/thread_tools.tpl -->
     </div>
+
+    <!-- Button to mark topic as resolved -->
+    <button id="markResolvedButton" class="btn btn-sm btn-success" title="Mark as Resolved">
+        <i class="fa fa-check-circle"></i> Mark as Resolved
+    </button>
+
     <!-- IMPORT partials/topic/reply-button.tpl -->
 </div>
+
+<script>
+
+    const markResolvedButton = document.getElementById("markResolvedButton");
+
+    markResolvedButton.addEventListener("click", function () {
+
+        markResolvedButton.textContent = "Resolved";
+        markResolvedButton.classList.remove("btn-success");
+        markResolvedButton.classList.add("btn-default");
+        markResolvedButton.disabled = true; // Optionally, disable the button after marking as resolved
+    });
+</script>
