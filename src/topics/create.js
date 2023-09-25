@@ -35,9 +35,23 @@ module.exports = function (Topics) {
             viewcount: 0,
             isPrivate: false,
             isAnonymous: false,
+            isUrgent: false,
         };
-        topicData.isPrivate = data.isPrivate
-        topicData.isAnonymous = data.isAnonymous
+        // added code for sprint 1
+        // type casting
+        /** 
+         * @type {boolean}
+         */
+        topicData.isPrivate = data.isPrivate;
+        /** 
+         * @type {boolean}
+         */
+        topicData.isAnonymous = data.isAnonymous;
+        // added code for sprint 2
+        /** 
+         * @type {boolean}
+         */
+        topicData.isUrgent = data.isUrgent;
 
         if (Array.isArray(data.tags) && data.tags.length) {
             topicData.tags = data.tags.join(',');
