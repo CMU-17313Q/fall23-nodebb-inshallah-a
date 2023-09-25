@@ -24,6 +24,45 @@
     </div>
 </div>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urgent Button</title>
+    <style>
+
+        .urgent-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .urgent-button.clicked {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <button id="isUrgentButton" class="urgent-button">isUrgent</button>
+
+    <script>
+   
+        const urgentButton = document.getElementById("isUrgentButton");
+
+        
+        urgentButton.addEventListener("click", function () {
+
+            urgentButton.classList.toggle("clicked");
+        });
+    </script>
+</body>
+</html>
+
+
+
 <div class="row">
     <div class="col-sm-2 col-xs-12 settings-header">[[admin/settings/post:length]]</div>
     <div class="col-sm-10 col-xs-12">
