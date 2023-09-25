@@ -39,16 +39,16 @@ module.exports = function (Topics) {
         };
         // added code for sprint 1
         // type casting
-        /** 
+        /**
          * @type {boolean}
          */
         topicData.isPrivate = data.isPrivate;
-        /** 
+        /**
          * @type {boolean}
          */
         topicData.isAnonymous = data.isAnonymous;
         // added code for sprint 2
-        /** 
+        /**
          * @type {boolean}
          */
         topicData.isUrgent = data.isUrgent || false;
