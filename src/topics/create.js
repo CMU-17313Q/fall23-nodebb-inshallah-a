@@ -51,7 +51,7 @@ module.exports = function (Topics) {
         /** 
          * @type {boolean}
          */
-        topicData.isUrgent = data.isUrgent;
+        topicData.isUrgent = data.isUrgent || false;
 
         if (Array.isArray(data.tags) && data.tags.length) {
             topicData.tags = data.tags.join(',');
