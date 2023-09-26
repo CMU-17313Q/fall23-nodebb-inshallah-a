@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="post-footer">
 
-    <button id="resolveButton" style="color: white; float: right;" component="post/resolve" class="btn btn-primary btn-sm no-select">Mark as Resolved</button>
+    
     {{{ if posts.user.signature }}}
     <div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
     {{{ end }}}
