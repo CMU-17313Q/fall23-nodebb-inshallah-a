@@ -430,3 +430,19 @@ topicsController.pagination = async function (req, res, next) {
 
     res.json({ pagination: paginationData });
 };
+
+topicsController.setTopicAsResolved = async (req, res) => {
+    try {
+        // Set the topic as urgent first
+        const tid = req.params.topic_id as number;
+
+        // Now, retrieve the topic details
+        await db.setObjectField(`topic:${tid}`, 'isResolved', true);
+        const topicData = await topicsController.get(req, req.params);
+        helpers.formatApiResponse(200, res, topicData);
+
+    } catch (error) {
+        // Handle error appropriately
+        helpers.formatApiResponse(500, res, { error: 'An error occurred while setting the topic as resolved.' });
+    }
+};
