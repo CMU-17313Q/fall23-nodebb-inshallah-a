@@ -31,9 +31,11 @@
          <!-- ENDIF  posts.selfPost  -->
 
 
-
      
 
+
+
+     
 
             <!-- IF !isAnonymous   -->
          <!-- IF !posts.selfPost  -->
