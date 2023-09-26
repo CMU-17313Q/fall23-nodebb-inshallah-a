@@ -22,6 +22,7 @@
     <!-- ENDIF !posts.selfPost  -->
 <!-- ENDIF isAnonymous  -->
 
+<button id="resolveButton" style="color: white; float: right;" component="post/resolve" class="btn btn-primary btn-sm no-select">Mark as Resolved</button>
   
        <!-- IF posts.selfPost   -->
         <strong>
