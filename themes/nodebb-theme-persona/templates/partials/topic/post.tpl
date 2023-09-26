@@ -1,3 +1,29 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('resolveButton').addEventListener('click', function() {
+        event.preventDefault(); // Prevents the default behavior
+
+    fetch(window.location.href + "/isResolved", {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response from the server if needed
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+        
+    });
+});
+
+</script>
+
 <div class="clearfix post-header">
 <!-- IF !privileges.isAdminOrMod -->
   <!-- IF (!isAnonymous || posts.selfPost) -->
@@ -48,12 +74,16 @@
   
 <!-- IF privileges.isAdminOrMod -->
 <div class="icon pull-left">
+
+
+
     <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->">
         {buildAvatar(posts.user, "sm2x", true, "", "user/picture")}
         <i component="user/status" class="fa fa-circle status {posts.user.status}" title="[[global:{posts.user.status}]]"></i>
     </a>
 </div>
  <strong>
+ 
             <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->" itemprop="author" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
         </strong>
 <!-- ENDIF privileges.isAdminOrMod -->
@@ -112,11 +142,14 @@
 </div>
 
 <div class="post-footer">
+
+    
     {{{ if posts.user.signature }}}
     <div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
     {{{ end }}}
 
     <div class="clearfix">
+    
     {{{ if !hideReplies }}}
     <a component="post/reply-count" data-target-component="post/replies/container" href="#" class="threaded-replies no-select pull-left {{{ if !posts.replies.count }}}hidden{{{ end }}}">
         <span component="post/reply-count/avatars" class="avatars {{{ if posts.replies.hasMore }}}hasMore{{{ end }}}">
@@ -137,6 +170,8 @@
     <small class="pull-right">
         <!-- IMPORT partials/topic/reactions.tpl -->
         <span class="post-tools">
+      
+
             <a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
             <a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
         </span>
