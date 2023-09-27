@@ -48,8 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- ENDIF !posts.selfPost  -->
 <!-- ENDIF isAnonymous  -->
 
-<button id="resolveButton" style="color: white; float: right;" component="post/resolve" class="btn btn-primary btn-sm no-select">Mark as Resolved</button>
-  
+     <button id="resolveButton" 
+     style="color: white;
+      float: right;" 
+      component="post/resolve" 
+      class="btn btn-primary btn-sm no-select">Mark as Resolved</button>
+
        <!-- IF posts.selfPost   -->
         <strong>
             <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->" itemprop="author" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
@@ -92,8 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
      
         
 
-
-        
+  
 
 
 
