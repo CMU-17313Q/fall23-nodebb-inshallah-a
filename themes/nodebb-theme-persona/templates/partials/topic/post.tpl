@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- ENDIF !posts.selfPost  -->
 <!-- ENDIF isAnonymous  -->
 
+
      <button id="resolveButton" 
      style="color: white;
       float: right;" 
