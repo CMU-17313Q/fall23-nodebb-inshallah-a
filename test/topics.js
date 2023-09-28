@@ -29,6 +29,8 @@ const helpers = require('./helpers');
 const socketPosts = require('../src/socket.io/posts');
 const socketTopics = require('../src/socket.io/topics');
 const apiTopics = require('../src/api/topics');
+const { done } = require('nprogress');
+const { dnsPrefetchControl } = require('helmet');
 
 const requestType = util.promisify((type, url, opts, cb) => {
     request[type](url, opts, (err, res, body) => cb(err, { res: res, body: body }));
@@ -427,7 +429,8 @@ describe('Topic\'s', () => {
             });
         });
 
-        // code for testing sprint 2, ensuring the isResolved attribute for the topic
+        // code for testing sprint 2, ensuring the isResolved attribute
+        // is an attribute of the topic object
         it('should get the newly added isResolved field for topic', (done) => {
             topics.getTopicFields(newTopic.tid, ['isResolved'], (err, data) => {
                 assert.ifError(err);
@@ -436,7 +439,35 @@ describe('Topic\'s', () => {
                 done();
             });
         });
+        it('should get the updated isResolved field for topic from the json', (done) => {
+            topics.getTopicFields(newTopic.tid, ['isResolved'], (err, data) => {
+                if (err) console.error('Error getting topic fields:', err); // Log error
+                assert.ifError(err);
         
+                console.log('Received data:', data); // Log received data
+                assert(Object.keys(data).length === 1);
+        
+                const url = nconf.get('url');
+                console.log('URL:', url); // Log URL
+        
+                assert.strictEqual(data.isResolved, 'false'); // Assuming that isResolved is a string.
+                
+                const requestUrl = `http://127.0.0.1:4567/topic/${newTopic.slug}/isResolved`;
+                console.log('Requesting:', requestUrl); // Log the request URL
+                
+                request(requestUrl, {data}, (err, res) => {
+                    if (err) console.error('Error making request:', err); // Log error
+                    assert.ifError(err);
+                    
+                    console.log('Response status code:', res.statusCode); // Log status code
+                    assert.equal(res.statusCode, 200);
+        
+                    done();
+                });
+            }); 
+        });
+        
+
         
 
         describe('.getTopicWithPosts', () => {

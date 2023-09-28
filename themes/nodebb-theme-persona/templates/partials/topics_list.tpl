@@ -1,6 +1,9 @@
 <!-- IF privileges.isAdminOrMod -->
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
+    {{{ if (topics.isResolved == "false") }}}
+         <span style="color: red; float: right;">Unresolved</span>
+       {{{ end }}}
     <li component="category/topic" class="row clearfix category-item {function.generateTopicClass}" <!-- IMPORT partials/data/category.tpl -->>
         <link itemprop="url" content="{config.relative_path}/topic/{../slug}" />
         <meta itemprop="name" content="{function.stripTags, ../title}" />

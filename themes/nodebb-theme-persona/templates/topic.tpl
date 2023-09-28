@@ -1,3 +1,5 @@
+
+</script>
 <div data-widget-area="header">
     {{{each widgets.header}}}
     {{widgets.header.html}}
@@ -9,6 +11,7 @@
             <h1 component="post/header" class="" itemprop="name">
                 <span class="topic-title">
                     <span component="topic/labels">
+                  
                         <i component="topic/scheduled" class="fa fa-clock-o <!-- IF !scheduled -->hidden<!-- ENDIF !scheduled -->" title="[[topic:scheduled]]"></i>
                         <i component="topic/pinned" class="fa fa-thumb-tack <!-- IF (scheduled || !pinned) -->hidden<!-- ENDIF (scheduled || !pinned) -->" title="{{{ if !pinExpiry }}}[[topic:pinned]]{{{ else }}}[[topic:pinned-with-expiry, {pinExpiryISO}]]{{{ end }}}"></i>
                         <i component="topic/locked" class="fa fa-lock <!-- IF !locked -->hidden<!-- ENDIF !locked -->" title="[[topic:locked]]"></i>

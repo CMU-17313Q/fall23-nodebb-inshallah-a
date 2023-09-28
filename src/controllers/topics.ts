@@ -434,6 +434,8 @@ topicsController.pagination = async function (req, res, next) {
 topicsController.setTopicAsResolved = async (req, res) => {
     try {
         // Set the topic as urgent first
+        // console.log(res);
+        // console.log(req);
         const tid = req.params.topic_id as number;
 
         // Now, retrieve the topic details

@@ -396,3 +396,19 @@ topicsController.pagination = function (req, res, next) {
         res.json({ pagination: paginationData });
     });
 };
+topicsController.setTopicAsResolved = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // Set the topic as urgent first
+        // console.log(res);
+        // console.log(req);
+        const tid = req.params.topic_id;
+        // Now, retrieve the topic details
+        yield database_1.default.setObjectField(`topic:${tid}`, 'isResolved', true);
+        const topicData = yield topicsController.get(req, req.params);
+        helpers_1.default.formatApiResponse(200, res, topicData);
+    }
+    catch (error) {
+        // Handle error appropriately
+        helpers_1.default.formatApiResponse(500, res, { error: 'An error occurred while setting the topic as resolved.' });
+    }
+});

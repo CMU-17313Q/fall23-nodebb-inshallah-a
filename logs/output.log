@@ -1,0 +1,333 @@
+
+NodeBB v2.8.1 Copyright (C) 2013-2023 NodeBB Inc.
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it under certain conditions.
+For the full license, please visit: http://www.gnu.org/copyleft/gpl.html
+
+Clustering enabled: Spinning up 1 process(es).
+
+2023-09-25T15:51:20.338Z [4567/50928] - [32minfo[39m: Initializing NodeBB v2.8.1 http://127.0.0.1:4567
+2023-09-25T15:51:20.949Z [4567/50928] - [32minfo[39m: [socket.io] Restricting access to origin: http://127.0.0.1:*
+(node:50928) [LRU_CACHE_UNBOUNDED] UnboundedCacheWarning: TTL caching without ttlAutopurge, max, or maxSize can result in unbounded memory consumption.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2023-09-25T15:51:21.035Z [4567/50928] - [33mwarn[39m: [plugins/load] The following plugins may not be compatible with your version of NodeBB. This may cause unintended behaviour or crashing. In the event of an unresponsive NodeBB caused by this plugin, run `./nodebb reset -p PLUGINNAME` to disable it.
+  * nodebb-rewards-essentials
+
+2023-09-25T15:51:21.067Z [4567/50928] - [32minfo[39m: [api] Adding 0 route(s) to `api/v3/plugins`
+2023-09-25T15:51:21.071Z [4567/50928] - [32minfo[39m: [router] Routes added
+2023-09-25T15:51:21.072Z [4567/50928] - [32minfo[39m: 🎉 NodeBB Ready
+2023-09-25T15:51:21.072Z [4567/50928] - [32minfo[39m: 🤝 Enabling 'trust proxy'
+2023-09-25T15:51:21.073Z [4567/50928] - [31merror[39m: NodeBB address in use, exiting...
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:21.074Z [4567/50928] - [31merror[39m: uncaughtException: listen EADDRINUSE: address already in use 0.0.0.0:4567
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {"date":"Mon Sep 25 2023 18:51:21 GMT+0300 (Arabian Standard Time)","error":{"address":"0.0.0.0","code":"EADDRINUSE","errno":-48,"port":4567,"syscall":"listen"},"exception":true,"os":{"loadavg":[13.833984375,13.16357421875,10.083984375],"uptime":170854},"process":{"argv":["/usr/local/bin/node","/Users/lujain/Desktop/fall23-nodebb-inshallah-a/app.js"],"cwd":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a","execPath":"/usr/local/bin/node","gid":20,"memoryUsage":{"arrayBuffers":1202015,"external":3279477,"heapTotal":113377280,"heapUsed":86745320,"rss":183074816},"pid":50928,"uid":501,"version":"v18.17.1"},"stack":"Error: listen EADDRINUSE: address already in use 0.0.0.0:4567\n    at Server.setupListenHandle [as _listen2] (node:net:1751:16)\n    at listenInCluster (node:net:1799:12)\n    at doListen (node:net:1948:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1751,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1799,"method":null,"native":false},{"column":7,"file":"node:net","function":"doListen","line":1948,"method":null,"native":false},{"column":21,"file":"node:internal/process/task_queues","function":"process.processTicksAndRejections","line":83,"method":"processTicksAndRejections","native":false}]}
+2023-09-25T15:51:21.074Z [4567/50928] - [31merror[39m: Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:21.074Z [4567/50928] - [32minfo[39m: [app] Shutdown (SIGTERM/SIGINT) Initialised.
+2023-09-25T15:51:21.074Z [4567/50928] - [31merror[39m: Error [ERR_SERVER_NOT_RUNNING]: Server is not running.
+    at new NodeError (node:internal/errors:405:5)
+    at Server.close (node:net:2095:12)
+    at Object.onceWrapper (node:events:628:28)
+    at Server.emit (node:events:526:35)
+    at emitCloseNT (node:net:2148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+[cluster] Child Process (50928) has exited (code: 1, signal: null)
+[cluster] Spinning up another process...
+2023-09-25T15:51:21.193Z [4567/50936] - [32minfo[39m: Initializing NodeBB v2.8.1 http://127.0.0.1:4567
+2023-09-25T15:51:21.694Z [4567/50936] - [32minfo[39m: [socket.io] Restricting access to origin: http://127.0.0.1:*
+(node:50936) [LRU_CACHE_UNBOUNDED] UnboundedCacheWarning: TTL caching without ttlAutopurge, max, or maxSize can result in unbounded memory consumption.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2023-09-25T15:51:21.752Z [4567/50936] - [33mwarn[39m: [plugins/load] The following plugins may not be compatible with your version of NodeBB. This may cause unintended behaviour or crashing. In the event of an unresponsive NodeBB caused by this plugin, run `./nodebb reset -p PLUGINNAME` to disable it.
+  * nodebb-rewards-essentials
+
+2023-09-25T15:51:21.768Z [4567/50936] - [32minfo[39m: [api] Adding 0 route(s) to `api/v3/plugins`
+2023-09-25T15:51:21.774Z [4567/50936] - [32minfo[39m: [router] Routes added
+2023-09-25T15:51:21.775Z [4567/50936] - [32minfo[39m: 🎉 NodeBB Ready
+2023-09-25T15:51:21.775Z [4567/50936] - [32minfo[39m: 🤝 Enabling 'trust proxy'
+2023-09-25T15:51:21.776Z [4567/50936] - [31merror[39m: NodeBB address in use, exiting...
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:21.777Z [4567/50936] - [31merror[39m: uncaughtException: listen EADDRINUSE: address already in use 0.0.0.0:4567
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {"date":"Mon Sep 25 2023 18:51:21 GMT+0300 (Arabian Standard Time)","error":{"address":"0.0.0.0","code":"EADDRINUSE","errno":-48,"port":4567,"syscall":"listen"},"exception":true,"os":{"loadavg":[14.16748046875,13.24365234375,10.1298828125],"uptime":170854},"process":{"argv":["/usr/local/bin/node","/Users/lujain/Desktop/fall23-nodebb-inshallah-a/app.js"],"cwd":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a","execPath":"/usr/local/bin/node","gid":20,"memoryUsage":{"arrayBuffers":869311,"external":2946773,"heapTotal":112771072,"heapUsed":80918248,"rss":181141504},"pid":50936,"uid":501,"version":"v18.17.1"},"stack":"Error: listen EADDRINUSE: address already in use 0.0.0.0:4567\n    at Server.setupListenHandle [as _listen2] (node:net:1751:16)\n    at listenInCluster (node:net:1799:12)\n    at doListen (node:net:1948:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1751,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1799,"method":null,"native":false},{"column":7,"file":"node:net","function":"doListen","line":1948,"method":null,"native":false},{"column":21,"file":"node:internal/process/task_queues","function":"process.processTicksAndRejections","line":83,"method":"processTicksAndRejections","native":false}]}
+2023-09-25T15:51:21.777Z [4567/50936] - [31merror[39m: Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:21.777Z [4567/50936] - [32minfo[39m: [app] Shutdown (SIGTERM/SIGINT) Initialised.
+2023-09-25T15:51:21.778Z [4567/50936] - [31merror[39m: Error [ERR_SERVER_NOT_RUNNING]: Server is not running.
+    at new NodeError (node:internal/errors:405:5)
+    at Server.close (node:net:2095:12)
+    at Object.onceWrapper (node:events:628:28)
+    at Server.emit (node:events:526:35)
+    at emitCloseNT (node:net:2148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+[cluster] Child Process (50936) has exited (code: 1, signal: null)
+[cluster] Spinning up another process...
+2023-09-25T15:51:21.902Z [4567/50952] - [32minfo[39m: Initializing NodeBB v2.8.1 http://127.0.0.1:4567
+2023-09-25T15:51:22.380Z [4567/50952] - [32minfo[39m: [socket.io] Restricting access to origin: http://127.0.0.1:*
+(node:50952) [LRU_CACHE_UNBOUNDED] UnboundedCacheWarning: TTL caching without ttlAutopurge, max, or maxSize can result in unbounded memory consumption.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2023-09-25T15:51:22.437Z [4567/50952] - [33mwarn[39m: [plugins/load] The following plugins may not be compatible with your version of NodeBB. This may cause unintended behaviour or crashing. In the event of an unresponsive NodeBB caused by this plugin, run `./nodebb reset -p PLUGINNAME` to disable it.
+  * nodebb-rewards-essentials
+
+2023-09-25T15:51:22.452Z [4567/50952] - [32minfo[39m: [api] Adding 0 route(s) to `api/v3/plugins`
+2023-09-25T15:51:22.457Z [4567/50952] - [32minfo[39m: [router] Routes added
+2023-09-25T15:51:22.458Z [4567/50952] - [32minfo[39m: 🎉 NodeBB Ready
+2023-09-25T15:51:22.458Z [4567/50952] - [32minfo[39m: 🤝 Enabling 'trust proxy'
+2023-09-25T15:51:22.459Z [4567/50952] - [31merror[39m: NodeBB address in use, exiting...
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:22.460Z [4567/50952] - [31merror[39m: uncaughtException: listen EADDRINUSE: address already in use 0.0.0.0:4567
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {"date":"Mon Sep 25 2023 18:51:22 GMT+0300 (Arabian Standard Time)","error":{"address":"0.0.0.0","code":"EADDRINUSE","errno":-48,"port":4567,"syscall":"listen"},"exception":true,"os":{"loadavg":[14.16748046875,13.24365234375,10.1298828125],"uptime":170855},"process":{"argv":["/usr/local/bin/node","/Users/lujain/Desktop/fall23-nodebb-inshallah-a/app.js"],"cwd":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a","execPath":"/usr/local/bin/node","gid":20,"memoryUsage":{"arrayBuffers":869310,"external":2946772,"heapTotal":113295360,"heapUsed":81210784,"rss":181977088},"pid":50952,"uid":501,"version":"v18.17.1"},"stack":"Error: listen EADDRINUSE: address already in use 0.0.0.0:4567\n    at Server.setupListenHandle [as _listen2] (node:net:1751:16)\n    at listenInCluster (node:net:1799:12)\n    at doListen (node:net:1948:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1751,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1799,"method":null,"native":false},{"column":7,"file":"node:net","function":"doListen","line":1948,"method":null,"native":false},{"column":21,"file":"node:internal/process/task_queues","function":"process.processTicksAndRejections","line":83,"method":"processTicksAndRejections","native":false}]}
+2023-09-25T15:51:22.460Z [4567/50952] - [31merror[39m: Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:22.460Z [4567/50952] - [32minfo[39m: [app] Shutdown (SIGTERM/SIGINT) Initialised.
+2023-09-25T15:51:22.460Z [4567/50952] - [31merror[39m: Error [ERR_SERVER_NOT_RUNNING]: Server is not running.
+    at new NodeError (node:internal/errors:405:5)
+    at Server.close (node:net:2095:12)
+    at Object.onceWrapper (node:events:628:28)
+    at Server.emit (node:events:526:35)
+    at emitCloseNT (node:net:2148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+[cluster] Child Process (50952) has exited (code: 1, signal: null)
+[cluster] Spinning up another process...
+2023-09-25T15:51:22.574Z [4567/50959] - [32minfo[39m: Initializing NodeBB v2.8.1 http://127.0.0.1:4567
+2023-09-25T15:51:23.049Z [4567/50959] - [32minfo[39m: [socket.io] Restricting access to origin: http://127.0.0.1:*
+(node:50959) [LRU_CACHE_UNBOUNDED] UnboundedCacheWarning: TTL caching without ttlAutopurge, max, or maxSize can result in unbounded memory consumption.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2023-09-25T15:51:23.106Z [4567/50959] - [33mwarn[39m: [plugins/load] The following plugins may not be compatible with your version of NodeBB. This may cause unintended behaviour or crashing. In the event of an unresponsive NodeBB caused by this plugin, run `./nodebb reset -p PLUGINNAME` to disable it.
+  * nodebb-rewards-essentials
+
+2023-09-25T15:51:23.122Z [4567/50959] - [32minfo[39m: [api] Adding 0 route(s) to `api/v3/plugins`
+2023-09-25T15:51:23.127Z [4567/50959] - [32minfo[39m: [router] Routes added
+2023-09-25T15:51:23.128Z [4567/50959] - [32minfo[39m: 🎉 NodeBB Ready
+2023-09-25T15:51:23.128Z [4567/50959] - [32minfo[39m: 🤝 Enabling 'trust proxy'
+2023-09-25T15:51:23.129Z [4567/50959] - [31merror[39m: NodeBB address in use, exiting...
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:23.130Z [4567/50959] - [31merror[39m: uncaughtException: listen EADDRINUSE: address already in use 0.0.0.0:4567
+Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21) {"date":"Mon Sep 25 2023 18:51:23 GMT+0300 (Arabian Standard Time)","error":{"address":"0.0.0.0","code":"EADDRINUSE","errno":-48,"port":4567,"syscall":"listen"},"exception":true,"os":{"loadavg":[14.16748046875,13.24365234375,10.1298828125],"uptime":170856},"process":{"argv":["/usr/local/bin/node","/Users/lujain/Desktop/fall23-nodebb-inshallah-a/app.js"],"cwd":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a","execPath":"/usr/local/bin/node","gid":20,"memoryUsage":{"arrayBuffers":869311,"external":2946773,"heapTotal":113295360,"heapUsed":80998792,"rss":179535872},"pid":50959,"uid":501,"version":"v18.17.1"},"stack":"Error: listen EADDRINUSE: address already in use 0.0.0.0:4567\n    at Server.setupListenHandle [as _listen2] (node:net:1751:16)\n    at listenInCluster (node:net:1799:12)\n    at doListen (node:net:1948:7)\n    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1751,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1799,"method":null,"native":false},{"column":7,"file":"node:net","function":"doListen","line":1948,"method":null,"native":false},{"column":21,"file":"node:internal/process/task_queues","function":"process.processTicksAndRejections","line":83,"method":"processTicksAndRejections","native":false}]}
+2023-09-25T15:51:23.130Z [4567/50959] - [31merror[39m: Error: listen EADDRINUSE: address already in use 0.0.0.0:4567
+    at Server.setupListenHandle [as _listen2] (node:net:1751:16)
+    at listenInCluster (node:net:1799:12)
+    at doListen (node:net:1948:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:83:21)
+2023-09-25T15:51:23.130Z [4567/50959] - [32minfo[39m: [app] Shutdown (SIGTERM/SIGINT) Initialised.
+2023-09-25T15:51:23.130Z [4567/50959] - [31merror[39m: Error [ERR_SERVER_NOT_RUNNING]: Server is not running.
+    at new NodeError (node:internal/errors:405:5)
+    at Server.close (node:net:2095:12)
+    at Object.onceWrapper (node:events:628:28)
+    at Server.emit (node:events:526:35)
+    at emitCloseNT (node:net:2148:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+3 restarts in 10 seconds, most likely an error on startup. Halting.
+dummy log
+NodeBB v2.8.1 Copyright (C) 2013-2023 NodeBB Inc.
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it under certain conditions.
+For the full license, please visit: http://www.gnu.org/copyleft/gpl.html
+
+Clustering enabled: Spinning up 1 process(es).
+
+2023-09-25T17:18:12.080Z [4567/56803] - [32minfo[39m: Initializing NodeBB v2.8.1 http://127.0.0.1:4567
+2023-09-25T17:18:12.820Z [4567/56803] - [32minfo[39m: [socket.io] Restricting access to origin: http://127.0.0.1:*
+(node:56803) [LRU_CACHE_UNBOUNDED] UnboundedCacheWarning: TTL caching without ttlAutopurge, max, or maxSize can result in unbounded memory consumption.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+2023-09-25T17:18:12.906Z [4567/56803] - [33mwarn[39m: [plugins/load] The following plugins may not be compatible with your version of NodeBB. This may cause unintended behaviour or crashing. In the event of an unresponsive NodeBB caused by this plugin, run `./nodebb reset -p PLUGINNAME` to disable it.
+  * nodebb-rewards-essentials
+
+2023-09-25T17:18:12.927Z [4567/56803] - [32minfo[39m: [api] Adding 0 route(s) to `api/v3/plugins`
+2023-09-25T17:18:12.932Z [4567/56803] - [32minfo[39m: [router] Routes added
+2023-09-25T17:18:12.933Z [4567/56803] - [32minfo[39m: 🎉 NodeBB Ready
+2023-09-25T17:18:12.933Z [4567/56803] - [32minfo[39m: 🤝 Enabling 'trust proxy'
+2023-09-25T17:18:12.934Z [4567/56803] - [32minfo[39m: 📡 NodeBB is now listening on: 0.0.0.0:4567
+2023-09-25T17:18:12.934Z [4567/56803] - [32minfo[39m: 🔗 Canonical URL: http://127.0.0.1:4567
+2023-09-25T17:20:08.838Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:08.840Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:08.945Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:08.945Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.098Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.098Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.301Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.302Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.554Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.555Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.858Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:09.858Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:10.210Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:10.211Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:10.613Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:10.614Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:11.067Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:11.067Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:11.568Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:11.569Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:12.120Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:12.121Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:12.724Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:12.724Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:13.377Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:13.377Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:14.081Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:14.081Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:14.833Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:14.834Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:15.635Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:15.636Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:16.487Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:16.487Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:17.390Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:17.391Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:18.344Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:18.344Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:19.346Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:19.346Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:19.349Z [4567/56803] - [31merror[39m: [analytics] Encountered error while writing analytics to data store
+MaxRetriesPerRequestError: Reached the max retries per request limit (which is 20). Refer to "maxRetriesPerRequest" option for details.
+    at Socket.<anonymous> (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/ioredis/built/redis/event_handler.js:175:37)
+    at Object.onceWrapper (node:events:629:26)
+    at Socket.emit (node:events:514:28)
+    at TCP.<anonymous> (node:net:323:12)
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:20.398Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:20.399Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:21.501Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+2023-09-25T17:20:21.502Z [4567/56803] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+    at TCPConnectWrap.callbackTrampoline (node:internal/async_hooks:130:17)
+[cluster] Child Process (56803) has exited (code: null, signal: SIGKILL)
+[cluster] Spinning up another process...
+2023-09-25T17:20:22.003Z [4567/57107] - [32minfo[39m: Initializing NodeBB v2.8.1 http://127.0.0.1:4567
+2023-09-25T17:20:22.039Z [4567/57107] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+2023-09-25T17:20:22.039Z [4567/57107] - [31merror[39m: Error: connect ECONNREFUSED 127.0.0.1:6379
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)
+[cluster] Child Process (57107) has exited (code: 0, signal: null)
+dummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy logdummy log
