@@ -60,6 +60,18 @@ document.addEventListener('DOMContentLoaded', function() {
             <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->" itemprop="author" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
         </strong>
          <!-- ENDIF  posts.selfPost  -->
+         <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Urgent Button</title>
+    </head>
+    <body>
+        <button style="font-size: 10px; background-color: red; color: white; border: none; padding: 5px 3px;">
+            ⚠️ Urgent!
+        </button>
+    </body>
+    </html>
+
 
 
 
