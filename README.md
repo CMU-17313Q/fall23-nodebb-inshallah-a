@@ -13,6 +13,7 @@ This repository is a forked version of the base [NodeBB repository](https://gith
 
 ## Theming
 
+
 NodeBB's theming engine is highly flexible and does not restrict your design choices. This version of the repository has our minimalist "Persona" theme installed to get you started.
 
 NodeBB's base theme utilizes [Bootstrap 3](http://getbootstrap.com/) but themes can choose to use a different framework altogether.
