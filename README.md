@@ -64,7 +64,6 @@ If you want to directly run the linting and testing commands with specific confi
 ## License
 
 NodeBB is licensed under the **GNU General Public License v3 (GPL-3)** (http://www.gnu.org/copyleft/gpl.html).
-
 ## Helpful Links
 
 * [NodeBB Demo](https://try.nodebb.org)
