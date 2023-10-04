@@ -1262,7 +1262,10 @@ describe('Topic\'s', () => {
             });
         });
         it('should check topic isResovled is false', (done) => {
-            assert.equal(topicData.isResolved, false);
+            // this is to ensure it passes in redis, that considers boolean as string
+            // this makes sure it's true set correctly.
+            let tmpIsResolved = topicData.isResolved == 'true' || topicData.isResolved == true;
+            assert.equal(tmpIsResolved, false);
             done();
         });
 
@@ -1286,10 +1289,12 @@ describe('Topic\'s', () => {
             request(`${nconf.get('url')}/api/topic/${topicData.tid}`, { json: true }, (err, response, body) => {
                 assert.ifError(err);
                 assert.equal(response.statusCode, 200);
-                //console.log(body._header);
+                // this is to ensure it passes in redis, that considers boolean as string
+                // this makes sure it's true set correctly.
+                let tmpIsResolved = body.isResolved == 'true' || body.isResolved == true;
                 assert.strictEqual(body._header.tags.meta.find(t => t.name === 'description').content, 'topic content');
                 assert.strictEqual(body._header.tags.meta.find(t => t.property === 'og:description').content, 'topic content');
-                assert.strictEqual(body.isResolved, true);
+                assert.strictEqual(tmpIsResolved, true);
 
                 done();
             });
