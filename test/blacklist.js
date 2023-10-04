@@ -9,6 +9,7 @@ const user = require('../src/user');
 const blacklist = require('../src/meta/blacklist');
 
 describe('blacklist', () => {
+    
     let adminUid;
 
     before((done) => {
