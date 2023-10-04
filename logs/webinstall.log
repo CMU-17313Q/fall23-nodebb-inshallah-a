@@ -1,0 +1,103 @@
+2023-10-04T14:28:38.464Z [48898] - [32minfo[39m: Launching web installer on port 4567
+2023-10-04T14:28:40.289Z [48898] - [32minfo[39m: Web installer listening on http://0.0.0.0:4567
+2023-10-04T14:31:14.392Z [50768] - [32minfo[39m: Launching web installer on port 4567
+2023-10-04T14:31:16.130Z [50768] - [31merror[39m: uncaughtException: listen EADDRINUSE: address already in use :::4567
+Error: listen EADDRINUSE: address already in use :::4567
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js:635:24)
+    at launchExpress (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:97:18)
+    at web.install [as webInstall] (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:82:9) {"date":"Wed Oct 04 2023 17:31:16 GMT+0300 (GMT+03:00)","error":{"address":"::","code":"EADDRINUSE","errno":-48,"port":4567,"syscall":"listen"},"exception":true,"os":{"loadavg":[10.1884765625,8.716796875,5.2392578125],"uptime":446180},"process":{"argv":["/opt/homebrew/Cellar/node/20.8.0/bin/node","/Users/lujain/Desktop/fall23-nodebb-inshallah-a/nodebb","start"],"cwd":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a","execPath":"/opt/homebrew/Cellar/node/20.8.0/bin/node","gid":20,"memoryUsage":{"arrayBuffers":6473691,"external":10084444,"heapTotal":94257152,"heapUsed":66158048,"rss":151633920},"pid":50768,"uid":501,"version":"v20.8.0"},"stack":"Error: listen EADDRINUSE: address already in use :::4567\n    at Server.setupListenHandle [as _listen2] (node:net:1872:16)\n    at listenInCluster (node:net:1920:12)\n    at Server.listen (node:net:2008:7)\n    at Function.listen (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js:635:24)\n    at launchExpress (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:97:18)\n    at web.install [as webInstall] (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:82:9)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1872,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1920,"method":null,"native":false},{"column":7,"file":"node:net","function":"Server.listen","line":2008,"method":"listen","native":false},{"column":24,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js","function":"Function.listen","line":635,"method":"listen","native":false},{"column":18,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js","function":"launchExpress","line":97,"method":null,"native":false},{"column":9,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js","function":"web.install [as webInstall]","line":82,"method":"install [as webInstall]","native":false}]}
+2023-10-04T14:31:40.278Z [50786] - [32minfo[39m: Launching web installer on port 4567
+2023-10-04T14:31:41.859Z [50786] - [31merror[39m: uncaughtException: listen EADDRINUSE: address already in use :::4567
+Error: listen EADDRINUSE: address already in use :::4567
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js:635:24)
+    at launchExpress (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:97:18)
+    at web.install [as webInstall] (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:82:9) {"date":"Wed Oct 04 2023 17:31:41 GMT+0300 (GMT+03:00)","error":{"address":"::","code":"EADDRINUSE","errno":-48,"port":4567,"syscall":"listen"},"exception":true,"os":{"loadavg":[7.19287109375,8.123046875,5.14306640625],"uptime":446205},"process":{"argv":["/opt/homebrew/Cellar/node/20.8.0/bin/node","/Users/lujain/Desktop/fall23-nodebb-inshallah-a/nodebb","build"],"cwd":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a","execPath":"/opt/homebrew/Cellar/node/20.8.0/bin/node","gid":20,"memoryUsage":{"arrayBuffers":6473691,"external":10084444,"heapTotal":94257152,"heapUsed":64880536,"rss":177356800},"pid":50786,"uid":501,"version":"v20.8.0"},"stack":"Error: listen EADDRINUSE: address already in use :::4567\n    at Server.setupListenHandle [as _listen2] (node:net:1872:16)\n    at listenInCluster (node:net:1920:12)\n    at Server.listen (node:net:2008:7)\n    at Function.listen (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js:635:24)\n    at launchExpress (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:97:18)\n    at web.install [as webInstall] (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:82:9)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1872,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1920,"method":null,"native":false},{"column":7,"file":"node:net","function":"Server.listen","line":2008,"method":"listen","native":false},{"column":24,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js","function":"Function.listen","line":635,"method":"listen","native":false},{"column":18,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js","function":"launchExpress","line":97,"method":null,"native":false},{"column":9,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js","function":"web.install [as webInstall]","line":82,"method":"install [as webInstall]","native":false}]}
+2023-10-04T14:33:54.320Z [51967] - [32minfo[39m: Launching web installer on port 4567
+2023-10-04T14:33:55.883Z [51967] - [31merror[39m: uncaughtException: listen EADDRINUSE: address already in use :::4567
+Error: listen EADDRINUSE: address already in use :::4567
+    at Server.setupListenHandle [as _listen2] (node:net:1872:16)
+    at listenInCluster (node:net:1920:12)
+    at Server.listen (node:net:2008:7)
+    at Function.listen (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js:635:24)
+    at launchExpress (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:97:18)
+    at web.install [as webInstall] (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:82:9) {"date":"Wed Oct 04 2023 17:33:55 GMT+0300 (GMT+03:00)","error":{"address":"::","code":"EADDRINUSE","errno":-48,"port":4567,"syscall":"listen"},"exception":true,"os":{"loadavg":[2.62646484375,5.99365234375,4.70703125],"uptime":446339},"process":{"argv":["/opt/homebrew/Cellar/node/20.8.0/bin/node","/Users/lujain/Desktop/fall23-nodebb-inshallah-a/nodebb","build"],"cwd":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a","execPath":"/opt/homebrew/Cellar/node/20.8.0/bin/node","gid":20,"memoryUsage":{"arrayBuffers":6473691,"external":10084444,"heapTotal":90537984,"heapUsed":57215368,"rss":181747712},"pid":51967,"uid":501,"version":"v20.8.0"},"stack":"Error: listen EADDRINUSE: address already in use :::4567\n    at Server.setupListenHandle [as _listen2] (node:net:1872:16)\n    at listenInCluster (node:net:1920:12)\n    at Server.listen (node:net:2008:7)\n    at Function.listen (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js:635:24)\n    at launchExpress (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:97:18)\n    at web.install [as webInstall] (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js:82:9)","trace":[{"column":16,"file":"node:net","function":"Server.setupListenHandle [as _listen2]","line":1872,"method":"setupListenHandle [as _listen2]","native":false},{"column":12,"file":"node:net","function":"listenInCluster","line":1920,"method":null,"native":false},{"column":7,"file":"node:net","function":"Server.listen","line":2008,"method":"listen","native":false},{"column":24,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/express/lib/application.js","function":"Function.listen","line":635,"method":"listen","native":false},{"column":18,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js","function":"launchExpress","line":97,"method":null,"native":false},{"column":9,"file":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/install/web.js","function":"web.install [as webInstall]","line":82,"method":"install [as webInstall]","native":false}]}
+2023-10-04T14:38:08.082Z [52829] - [32minfo[39m: NodeBB Setup Triggered via Command Line
+2023-10-04T14:38:19.539Z [52829] - [32minfo[39m: 
+Now configuring redis database:
+2023-10-04T14:38:21.896Z [52829] - [36mverbose[39m: [minifier] utilizing a maximum of 7 additional threads
+2023-10-04T14:38:21.906Z [52829] - [33mwarn[39m: [cache-buster] could not read cache buster ENOENT: no such file or directory, open '/Users/lujain/Desktop/fall23-nodebb-inshallah-a/build/cache-buster' {"code":"ENOENT","errno":-2,"path":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/build/cache-buster","stack":"Error: ENOENT: no such file or directory, open '/Users/lujain/Desktop/fall23-nodebb-inshallah-a/build/cache-buster'","syscall":"open"}
+2023-10-04T14:38:21.961Z [52829] - [33mwarn[39m: No administrators have been detected, running initial user setup
+
+2023-10-04T14:38:40.416Z [52829] - [33mwarn[39m: NodeBB Setup Aborted.
+ Error: canceled
+    at Interface.<anonymous> (/Users/lujain/Desktop/fall23-nodebb-inshallah-a/node_modules/read/lib/read.js:66:13)
+    at Interface.emit (node:events:514:28)
+    at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1125:18)
+    at ReadStream.onkeypress (node:internal/readline/interface:264:20)
+    at ReadStream.emit (node:events:514:28)
+    at emitKeys (node:internal/readline/utils:371:14)
+    at emitKeys.next (<anonymous>)
+    at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
+    at ReadStream.emit (node:events:514:28)
+    at addChunk (node:internal/streams/readable:376:12)
+2023-10-04T14:38:43.864Z [52859] - [32minfo[39m: NodeBB Setup Triggered via Command Line
+2023-10-04T14:38:43.903Z [52859] - [32minfo[39m: 
+Now configuring redis database:
+2023-10-04T14:38:44.270Z [52859] - [36mverbose[39m: [minifier] utilizing a maximum of 7 additional threads
+2023-10-04T14:38:44.278Z [52859] - [33mwarn[39m: [cache-buster] could not read cache buster ENOENT: no such file or directory, open '/Users/lujain/Desktop/fall23-nodebb-inshallah-a/build/cache-buster' {"code":"ENOENT","errno":-2,"path":"/Users/lujain/Desktop/fall23-nodebb-inshallah-a/build/cache-buster","stack":"Error: ENOENT: no such file or directory, open '/Users/lujain/Desktop/fall23-nodebb-inshallah-a/build/cache-buster'","syscall":"open"}
+2023-10-04T14:38:44.280Z [52859] - [33mwarn[39m: No administrators have been detected, running initial user setup
+
+2023-10-04T14:38:44.593Z [52859] - [32minfo[39m: [install/defaultPlugins] customDefaults undefined
+2023-10-04T14:38:44.593Z [52859] - [32minfo[39m: [install/enableDefaultPlugins] activating default plugins {"0":"nodebb-plugin-composer-default","1":"nodebb-plugin-markdown","2":"nodebb-plugin-mentions","3":"nodebb-widget-essentials","4":"nodebb-rewards-essentials","5":"nodebb-plugin-emoji","6":"nodebb-plugin-emoji-android"}
+2023-10-04T14:38:44.594Z [52859] - [31merror[39m: Cannot copy favicon.ico
+Error: ENOENT: no such file or directory, copyfile '/Users/lujain/Desktop/fall23-nodebb-inshallah-a/public/favicon.ico' -> 'public/uploads/system/favicon.ico'
+2023-10-04T14:38:44.661Z [52859] - [36mverbose[39m: [build] Querying CPU core count for build strategy
+2023-10-04T14:38:44.661Z [52859] - [36mverbose[39m: [build] System returned 8 cores, opting for parallel build strategy
+2023-10-04T14:38:44.661Z [52859] - [36mverbose[39m: [build] building the following targets: plugin static dirs, requirejs modules, client js bundle, admin js bundle, client side styles, admin control panel styles, templates, languages
+2023-10-04T14:38:44.663Z [52859] - [36mverbose[39m: [plugins] loading the following fields from plugin data: staticDirs, modules, clientScripts, acpScripts, cssFiles, lessFiles, acpLessFiles, languageData
+2023-10-04T14:38:44.667Z [52859] - [36mverbose[39m: [plugins] Found 1 less file(s) for plugin nodebb-plugin-composer-default
+2023-10-04T14:38:44.667Z [52859] - [36mverbose[39m: [plugins] Found 1 less file(s) for plugin nodebb-plugin-markdown
+2023-10-04T14:38:44.667Z [52859] - [36mverbose[39m: [plugins] Found 1 css file(s) for plugin nodebb-widget-essentials
+2023-10-04T14:38:44.667Z [52859] - [36mverbose[39m: [plugins] Found 1 less file(s) for plugin nodebb-plugin-emoji
+2023-10-04T14:38:44.667Z [52859] - [36mverbose[39m: [plugins] Found 1 acpLess file(s) for plugin nodebb-plugin-emoji
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 12 AMD-style module(s) for plugin nodebb-plugin-composer-default
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 1 AMD-style module(s) for plugin nodebb-plugin-markdown
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 1 js file(s) for plugin nodebb-plugin-markdown
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 1 AMD-style module(s) for plugin nodebb-plugin-mentions
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 1 js file(s) for plugin nodebb-plugin-mentions
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 1 js file(s) for plugin nodebb-rewards-essentials
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 5 AMD-style module(s) for plugin nodebb-plugin-emoji
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 1 js file(s) for plugin nodebb-plugin-emoji
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] Found 1 js file(s) for plugin nodebb-plugin-emoji
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] found 1 static directories for nodebb-rewards-essentials
+2023-10-04T14:38:44.668Z [52859] - [36mverbose[39m: [plugins] found 1 static directories for nodebb-plugin-emoji
+2023-10-04T14:38:44.670Z [52859] - [36mverbose[39m: [plugins] Found 2 js file(s) for plugin nodebb-plugin-composer-default
+2023-10-04T14:38:44.670Z [52859] - [36mverbose[39m: [plugins] found 1 static directories for nodebb-plugin-markdown
+2023-10-04T14:38:44.671Z [52859] - [32minfo[39m: [build] Building in parallel mode
+2023-10-04T14:38:44.671Z [52859] - [32minfo[39m: [build] Building TypeScript files
+2023-10-04T14:38:47.957Z [52859] - [32minfo[39m: [build] TypeScript building complete
+2023-10-04T14:38:47.957Z [52859] - [32minfo[39m: [build]         plugin static dirs  build started
+2023-10-04T14:38:47.958Z [52859] - [32minfo[39m: [build]          requirejs modules  build started
+2023-10-04T14:38:47.959Z [52859] - [32minfo[39m: [build]           client js bundle  build started
+2023-10-04T14:38:47.959Z [52859] - [32minfo[39m: [build]            admin js bundle  build started
+2023-10-04T14:38:47.959Z [52859] - [32minfo[39m: [build]         client side styles  build started
+2023-10-04T14:38:47.959Z [52859] - [32minfo[39m: [build] admin control panel styles  build started
+2023-10-04T14:38:47.959Z [52859] - [32minfo[39m: [build]                  templates  build started
+2023-10-04T14:38:47.959Z [52859] - [32minfo[39m: [build]                  languages  build started
+2023-10-04T14:38:47.989Z [52859] - [32minfo[39m: [build]         plugin static dirs  build completed in 0.032sec
+2023-10-04T14:38:48.487Z [52859] - [32minfo[39m: [build]           client js bundle  build completed in 0.528sec
+2023-10-04T14:38:48.488Z [52859] - [32minfo[39m: [build]            admin js bundle  build completed in 0.528sec
+2023-10-04T14:38:49.099Z [52859] - [32minfo[39m: [build]                  languages  build completed in 1.14sec
+2023-10-04T14:38:49.378Z [52859] - [36mverbose[39m: [meta/templates] Successfully compiled templates.
+2023-10-04T14:38:49.378Z [52859] - [32minfo[39m: [build]                  templates  build completed in 1.419sec
+2023-10-04T14:38:49.547Z [52859] - [32minfo[39m: [build]          requirejs modules  build completed in 1.589sec
+2023-10-04T14:38:49.548Z [52859] - [32minfo[39m: [build] Bundling with Webpack.
+2023-10-04T14:38:50.064Z [52859] - [32minfo[39m: [build]         client side styles  build completed in 2.105sec
+2023-10-04T14:38:50.264Z [52859] - [32minfo[39m: [build] admin control panel styles  build completed in 2.305sec
+2023-10-04T14:38:51.287Z [52859] - [32minfo[39m: [build] Asset compilation successful. Completed in 6.614sec.
