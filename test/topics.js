@@ -1253,21 +1253,33 @@ describe('Topic\'s', () => {
             });
         });
 
-        it('should load topic', (done) => {
-            request(`${nconf.get('url')}/topic/${topicData.slug}`, (err, response, body) => {
-                assert.ifError(err);
-                assert.equal(response.statusCode, 200);
-                assert(body);
-                done();
+       
+
+        it('should load topic isResovled', (done) => {  
+            db.setObjectField(`topic:${topicData.tid}`, 'isResolved', true);
+            done();
             });
-        });
+        
 
         it('should load topic api data', (done) => {
-            request(`${nconf.get('url')}/api/topic/${topicData.slug}`, { json: true }, (err, response, body) => {
+            request(`${nconf.get('url')}/api/topic/${topicData.tid}`, { json: true }, (err, response, body) => {
                 assert.ifError(err);
                 assert.equal(response.statusCode, 200);
                 assert.strictEqual(body._header.tags.meta.find(t => t.name === 'description').content, 'topic content');
                 assert.strictEqual(body._header.tags.meta.find(t => t.property === 'og:description').content, 'topic content');
+                done();
+            });
+        });
+
+        it('should load topic api data for isUrgent', (done) => {
+            request(`${nconf.get('url')}/api/topic/${topicData.tid}`, { json: true }, (err, response, body) => {
+                assert.ifError(err);
+                assert.equal(response.statusCode, 200);
+                //console.log(body._header);
+                assert.strictEqual(body._header.tags.meta.find(t => t.name === 'description').content, 'topic content');
+                assert.strictEqual(body._header.tags.meta.find(t => t.property === 'og:description').content, 'topic content');
+                assert.strictEqual(body.isResolved, 'true');
+
                 done();
             });
         });
