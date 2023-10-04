@@ -76,6 +76,7 @@
 
 
 
+
     <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->">
         {buildAvatar(posts.user, "sm2x", true, "", "user/picture")}
         <i component="user/status" class="fa fa-circle status {posts.user.status}" title="[[global:{posts.user.status}]]"></i>
@@ -93,6 +94,7 @@
 
 
         
+
 
 
 
@@ -144,6 +146,7 @@
 
 
 
+
     {{{ if posts.user.signature }}}
     <div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
     {{{ end }}}
@@ -171,7 +174,7 @@
         <!-- IMPORT partials/topic/reactions.tpl -->
         <span class="post-tools">
 
-        
+
             <a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
             <a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
         </span>
