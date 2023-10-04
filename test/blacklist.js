@@ -9,9 +9,10 @@ const user = require('../src/user');
 const blacklist = require('../src/meta/blacklist');
 
 describe('blacklist', () => {
-    
+
     let adminUid;
 
+    
     before((done) => {
         user.create({ username: 'admin' }, (err, uid) => {
             assert.ifError(err);
