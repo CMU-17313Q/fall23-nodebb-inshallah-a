@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="installer.css">
-
+    <link rel="stylesheet" href="composer.less">
     <script type="text/javascript" async defer src="/assets/installer.min.js"></script>
 </head>
 
