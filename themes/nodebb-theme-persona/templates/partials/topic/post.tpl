@@ -1,30 +1,11 @@
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('resolveButton').addEventListener('click', function() {
-        event.preventDefault(); // Prevents the default behavior
-
-    fetch(window.location.href + "/isResolved", {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle the response from the server if needed
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-        
-    });
-});
-
-</script>
-
 <div class="clearfix post-header">
+
+  <div style="background-color: red; color: white; text-align: center; padding: 10px; font-size: 20px; font-weight: bold;">
+   THIS POST IS URGENT
+   <h2 style="text-align: center;">
+   ⚠️
+</h2>
+</div>
 <!-- IF !privileges.isAdminOrMod -->
   <!-- IF (!isAnonymous || posts.selfPost) -->
 <div class="icon pull-left">
@@ -48,7 +29,16 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- ENDIF !posts.selfPost  -->
 <!-- ENDIF isAnonymous  -->
 
-<button id="resolveButton" style="color: white; float: right;" component="post/resolve" class="btn btn-primary btn-sm no-select">Mark as Resolved</button>
+   <!-- IF posts.selfPost  -->
+     <button id="resolveButton" 
+     style="color: white;
+      float: right;" 
+      component="post/resolve" 
+      class="btn btn-primary btn-sm no-select">Mark as Resolved</button>
+
+   <!-- ENDIF posts.selfPost  -->
+
+
   
        <!-- IF posts.selfPost   -->
         <strong>
@@ -58,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-     
+
 
 
             <!-- IF !isAnonymous   -->
@@ -73,7 +63,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   
 <!-- IF privileges.isAdminOrMod -->
+  <button id="resolveButton" 
+     style="color: white;
+      float: right;" 
+      component="post/resolve" 
+      class="btn btn-primary btn-sm no-select">Mark as Resolved</button>
+
 <div class="icon pull-left">
+
+
+
 
 
 
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </a>
 </div>
  <strong>
- 
+
             <a href="<!-- IF posts.user.userslug -->{config.relative_path}/user/{posts.user.userslug}<!-- ELSE -->#<!-- ENDIF posts.user.userslug -->" itemprop="author" data-username="{posts.user.username}" data-uid="{posts.user.uid}">{posts.user.displayname}</a>
         </strong>
 <!-- ENDIF privileges.isAdminOrMod -->
@@ -143,13 +142,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <div class="post-footer">
 
-    
+
+
     {{{ if posts.user.signature }}}
     <div component="post/signature" data-uid="{posts.user.uid}" class="post-signature">{posts.user.signature}</div>
     {{{ end }}}
 
     <div class="clearfix">
-    
+
     {{{ if !hideReplies }}}
     <a component="post/reply-count" data-target-component="post/replies/container" href="#" class="threaded-replies no-select pull-left {{{ if !posts.replies.count }}}hidden{{{ end }}}">
         <span component="post/reply-count/avatars" class="avatars {{{ if posts.replies.hasMore }}}hasMore{{{ end }}}">
@@ -170,8 +170,8 @@ document.addEventListener('DOMContentLoaded', function() {
     <small class="pull-right">
         <!-- IMPORT partials/topic/reactions.tpl -->
         <span class="post-tools">
-      
 
+        
             <a component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
             <a component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
         </span>
