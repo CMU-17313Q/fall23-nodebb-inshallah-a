@@ -36,6 +36,7 @@ module.exports = function (Topics) {
             isPrivate: false,
             isAnonymous: false,
             isUrgent: false,
+            isResolved: false,
         };
         // added code for sprint 1
         // type casting
@@ -52,6 +53,10 @@ module.exports = function (Topics) {
          * @type {boolean}
          */
         topicData.isUrgent = data.isUrgent || false;
+        /**
+         * @type {boolean}
+         */
+        topicData.isResolved = data.isResolved || false;
 
         if (Array.isArray(data.tags) && data.tags.length) {
             topicData.tags = data.tags.join(',');
