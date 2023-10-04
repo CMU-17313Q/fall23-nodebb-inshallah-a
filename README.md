@@ -49,6 +49,7 @@ VSCode can provide a lot of other assistance too, such as recommending package i
 
 This repository comes with tools for linting (ESLint), testing (Mocha), and coverage reporting (nyc). All of these tools can be run locally:
 ```
+% npm install eslint-config-nodebb --save-dev // Dependency for linter
 % npm run lint      // Runs the linter
 % npm run test      // Runs test suite + generates coverage report
 ```

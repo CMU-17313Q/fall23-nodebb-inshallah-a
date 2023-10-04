@@ -61,7 +61,6 @@ module.exports = function (Topics) {
         if (Array.isArray(data.tags) && data.tags.length) {
             topicData.tags = data.tags.join(',');
         }
-
         const result = await plugins.hooks.fire('filter:topic.create', { topic: topicData, data: data });
         topicData = result.topic;
         await db.setObject(`topic:${topicData.tid}`, topicData);
