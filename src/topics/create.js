@@ -53,16 +53,14 @@ module.exports = function (Topics) {
          * @type {boolean}
          */
         topicData.isUrgent = data.isUrgent || false;
-        // added code for sprint 2
         /**
          * @type {boolean}
          */
-         topicData.isResolved = data.isResolved || false;
+        topicData.isResolved = data.isResolved || false;
 
         if (Array.isArray(data.tags) && data.tags.length) {
             topicData.tags = data.tags.join(',');
         }
-
         const result = await plugins.hooks.fire('filter:topic.create', { topic: topicData, data: data });
         topicData = result.topic;
         await db.setObject(`topic:${topicData.tid}`, topicData);
