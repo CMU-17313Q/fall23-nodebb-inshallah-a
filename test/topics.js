@@ -1288,6 +1288,7 @@ describe('Topic\'s', () => {
                 assert.ifError(err);
                 assert.equal(response.statusCode, 200);
                 //console.log(body._header);
+                // added the tests below
                 assert.strictEqual(body._header.tags.meta.find(t => t.name === 'description').content, 'topic content');
                 assert.strictEqual(body._header.tags.meta.find(t => t.property === 'og:description').content, 'topic content');
                 assert.strictEqual(body.isResolved, 'true');
