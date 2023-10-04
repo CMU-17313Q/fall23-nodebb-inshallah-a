@@ -1253,7 +1253,18 @@ describe('Topic\'s', () => {
             });
         });
 
-       
+        it('should load topic', (done) => {
+            request(`${nconf.get('url')}/topic/${topicData.slug}`, (err, response, body) => {
+                assert.ifError(err);
+                assert.equal(response.statusCode, 200);
+                assert(body);
+                done();
+            });
+        });
+        it('should check topic isResovled is false', (done) => {
+            assert.equal(topicData.isResolved, 'false');
+            done();
+        });
 
         it('should load topic isResovled', (done) => {  
             db.setObjectField(`topic:${topicData.tid}`, 'isResolved', true);
