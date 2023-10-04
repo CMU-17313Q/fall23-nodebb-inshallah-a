@@ -122,6 +122,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
+
+
+
+
         <!-- IMPORT partials/topic/badge.tpl -->
 
         <!-- IF posts.user.banned -->
