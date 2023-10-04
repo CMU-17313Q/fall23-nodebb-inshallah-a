@@ -1289,7 +1289,7 @@ describe('Topic\'s', () => {
                 //console.log(body._header);
                 assert.strictEqual(body._header.tags.meta.find(t => t.name === 'description').content, 'topic content');
                 assert.strictEqual(body._header.tags.meta.find(t => t.property === 'og:description').content, 'topic content');
-                assert.strictEqual(body.isResolved, 'true');
+                assert.strictEqual(body.isResolved, true);
 
                 done();
             });
