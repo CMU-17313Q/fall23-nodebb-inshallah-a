@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </span>
         </span>
 
+
     </small>
     <small class="pull-right">
         <span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
