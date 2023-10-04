@@ -1262,7 +1262,7 @@ describe('Topic\'s', () => {
             });
         });
         it('should check topic isResovled is false', (done) => {
-            assert.equal(topicData.isResolved, 'false');
+            assert.equal(topicData.isResolved, false);
             done();
         });
 
