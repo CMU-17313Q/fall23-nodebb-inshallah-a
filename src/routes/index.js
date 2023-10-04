@@ -62,7 +62,6 @@ _mounts.topic = (app, name, middleware, controllers) => {
     // state change by the user
     app.post(`/${name}/:topic_id/:slug/:post_index?/post/isPrivate`, controllers.topics.updateIsPrivate);
     setupPageRoute(app, `/${name}/:topic_id/:slug?`, [], controllers.topics.get);
-    setupPageRoute(app, `/${name}/:topic_id/:slug/isResolved`, [], controllers.topics.setTopicAsResolved);
 };
 
 _mounts.post = (app, name, middleware, controllers) => {
