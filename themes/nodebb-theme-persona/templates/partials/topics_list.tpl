@@ -1,7 +1,12 @@
 <!-- IF privileges.isAdminOrMod -->
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
-
+    {{{ if (topics.isResolved == "false") }}}
+         <span style="color: red; float: right;">Unresolved</span>
+       {{{ end }}}
+       {{{ if (topics.isResolved == "true") }}}
+         <span style="color: green; float: right;">Resolved</span>
+       {{{ end }}}
     {{{ if (topics.isUrgent == "true") }}}
       
        
@@ -136,6 +141,23 @@
 <!-- IF !privileges.isAdminOrMod -->
 <ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="{nextStart}" data-set="{set}">
     {{{each topics}}}
+     {{{ if (topics.isResolved == "false") }}}
+      {{{ if ((topics.isPrivate == "false" ) || topics.isOwner) }}}
+         <span style="color: red; float: right;">Unresolved</span>
+       {{{ end }}}
+              {{{ end }}}
+       {{{ if (topics.isResolved == "true") }}}
+        {{{ if ((topics.isPrivate == "false" ) || topics.isOwner) }}}
+         <span style="color: green; float: right;">Resolved</span>
+       {{{ end }}}
+        {{{ end }}}
+
+    {{{ if (topics.isUrgent == "true") }}}
+     {{{ if ((topics.isPrivate == "false" ) || topics.isOwner) }}}
+
+    <span style="color:red; margin-left:5px;">Urgent</span><i class="fa fa-exclamation-circle" style="color:red; margin-left:5px;"></i>
+{{{end}}}
+{{{end}}}
 
     {{{ if (topics.isUrgent == "true") }}}
      {{{ if ((topics.isPrivate == "false" ) || topics.isOwner) }}}
