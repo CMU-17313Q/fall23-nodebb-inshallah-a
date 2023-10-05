@@ -147,3 +147,28 @@ Now when you go back to the comments and feedback category, guess what! The prio
 <img width="1257" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/72f230ab-4c43-4b17-b405-5e0ec0acdfb2">
 
 
+<h2> Tests in Sprint 2 </h2>
+
+<h3> isUrgent attribute </h3>
+
+In sprint 2 we added the isUrgent feature as seen above, but to accomplish this, we had to write an automated test first. The process of making this feature work involved ensuring that the attribute exists no matter what. Thus through pull request [#71](https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/pull/71)
+
+This testing is sufficient because the changes made include adding the isUrgent attribute. The test does not test for if isUrgent is boolean or string. This is because in redis, booleans are stored as string, and in other databases booleans are type booleans. 
+
+<img width="517" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/9fae00c5-855a-4405-b4c3-69d40145853a">
+
+<h3> isResolved attribute </h3>
+
+In sprint 2 we added the isResolved feature as seen above, but to accomplish this, we had to write an automated test first. The process of making this feature work involved ensuring that the attribute exists no matter what. Thus through pull request [#72](https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/pull/72)
+
+This testing is sufficient because the changes made include adding the isUrgent attribute. The test does not test for if isUrgent is boolean or string. This is because in redis, booleans are stored as string, and in other databases booleans are type booleans. 
+
+<img width="761" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/69cb5aa3-fe95-4b7f-8f7a-f7a6ae1c9185">
+
+<h3> isResolved frontend-backend connection </h3>
+
+In sprint 2, we had to update the isResolved, this required setting up routing that updated the isResolved database attribute from being false to being true. This involved the addition of the testing required for the isResolved connection, and this accomplishes the testing of the required issue. This fulfills the acceptance criteria because it involves first ensuring that the isResolved is by default false upon topic creation. It then ensures that upon calling functionality that is the same as the route, that the isResolved updates to true immediatlly. This is possible through the use of AJAX, ensuring there's no need to refresh the page. This test passed, and thus the acceptance criteria is fulfilled! This was linked to pull request [#86](https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/pull/86)
+
+<img width="1093" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/48bdcc9a-3455-4ee8-84ee-a40f98b1080e">
+
+
