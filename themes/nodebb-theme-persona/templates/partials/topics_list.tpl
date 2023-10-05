@@ -7,6 +7,7 @@
        {{{ if (topics.isResolved == "true") }}}
          <span style="color: green; float: right;">Resolved</span>
        {{{ end }}}
+
     {{{ if (topics.isUrgent == "true") }}}
       
        
@@ -151,13 +152,6 @@
          <span style="color: green; float: right;">Resolved</span>
        {{{ end }}}
         {{{ end }}}
-
-    {{{ if (topics.isUrgent == "true") }}}
-     {{{ if ((topics.isPrivate == "false" ) || topics.isOwner) }}}
-
-    <span style="color:red; margin-left:5px;">Urgent</span><i class="fa fa-exclamation-circle" style="color:red; margin-left:5px;"></i>
-{{{end}}}
-{{{end}}}
 
     {{{ if (topics.isUrgent == "true") }}}
      {{{ if ((topics.isPrivate == "false" ) || topics.isOwner) }}}
