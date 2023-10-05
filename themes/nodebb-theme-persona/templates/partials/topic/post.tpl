@@ -24,14 +24,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 
+
+
+     
 <div class="clearfix post-header">
 
+  {{{ if (isUrgent == "true") }}}
   <div style="background-color: red; color: white; text-align: center; padding: 10px; font-size: 20px; font-weight: bold;">
    THIS POST IS URGENT
    <h2 style="text-align: center;">
    ⚠️
 </h2>
 </div>
+
+
+{{{end}}}
+
+
 
 <!-- IF !privileges.isAdminOrMod -->
 
