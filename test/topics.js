@@ -1295,7 +1295,6 @@ describe('Topic\'s', () => {
                 assert.strictEqual(body._header.tags.meta.find(t => t.name === 'description').content, 'topic content');
                 assert.strictEqual(body._header.tags.meta.find(t => t.property === 'og:description').content, 'topic content');
                 assert.strictEqual(tmpIsResolved, true);
-
                 done();
             });
         });
