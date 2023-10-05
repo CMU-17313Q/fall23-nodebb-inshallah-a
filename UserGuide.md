@@ -51,6 +51,60 @@ Now register!
 
 <h2> 4. Sprint 1 Features</h2>
 
+<h3> 1. Private Posts </h3>
+
+Upon pressing on the 'New Topic' button, you notice a 'Private' dropdown, fill it out, and let's see what happens with this 'Private' post :)
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/fda5efc8-8a26-4556-928f-c5e650b1a43a">
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/9fada2f2-a5f7-4b6a-b01f-13fe41585af8">
+
+Now switch to another account, here we're switching to student1, we were in student2. Feel free to register another student account to see our feature!
+
+Oh look! We can't see the other student's private post!
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/c027fbe7-f645-475b-83ec-9dbf3666dd85">
+
+
+But what happens if we switch to an instructor, what happens then? Instructors can see private posts. This is because private posts are directed to them
+if students wish to personal questions, or ask questions about their code!
+
+As an instructor we can see the student's private post! Only the student that posted the private post, or an instructor can see the private post. 
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/d5a037fb-d601-408f-a318-f5b049523027">
+
+
+<h3> 2. Anonymous Posts </h3>
+
+Let's go back to the student account, and create another topic! This time you might notice the 'Anonymous' selection, let's keep it as Anonymous, and change Private to be
+'Non Private', and see what happens!
+
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/f6d5f711-8cc9-40bf-b6ae-c8b07efb07d0">
+
+
+Now as you can see, given that you made the topic, you can see your name, and you can see your beautiful icon!
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/d3e0c7c1-b0a7-4b99-83a2-16370ec34673">
+
+
+But let's see what happens when we switch to another student's account! Oh look! You can't see the student's name or their icon!
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/da416e82-9c1f-4a4b-9722-7f64496a90c6">
+
+If you click on a topic as well, check out what happens, it's all anonymous!
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/3b35d231-8198-4b77-85ba-ee0f7163f7ac">
+
+But an instructor should see whoever posts a topic, and this it to make sure that a student's participation is tracked!
+
+Well look at that, you can see the anonymous post from the student! This encourages not to shy away from asking a question, and provides this
+through being anonymous if they'd like!
+
+<img width="1439" alt="image" src="https://github.com/CMU-17313Q/fall23-nodebb-inshallah-a/assets/122257080/633377a7-7fd5-44c6-9ae9-5eb87a56116a">
+
+
+
 <h2> 5. Sprint 2 Features</h2>
 
 <h3> 1. Urgent Posts </h3>
