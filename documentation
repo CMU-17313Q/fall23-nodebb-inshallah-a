@@ -1,0 +1,10 @@
+The output of the hegel command: 
+99 | if (!configExists && process.argv[2] !== 'setup') {
+  100 |     require('./setup').webInstall();
+> 101 |     return;
+      |     ^ 'return' outside of function. 
+  102 | }
+  103 |
+  104 | process.env.CONFIG = configFile;
+
+Found 1 error
