@@ -8,3 +8,87 @@ The output of the hegel command:
   104 | process.env.CONFIG = configFile;
 
 Found 1 error
+
+The output of the npx flow command: 
+     
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/controllers/category.js:21:28
+
+module may only be used as part of a legal top level export statement [invalid-export]
+
+     18│ const translator = require('../translator');
+     19│ const analytics = require('../analytics');
+     20│
+     21│ const categoryController = module.exports;
+     22│
+     23│ const url = nconf.get('url');
+     24│ const relative_path = nconf.get('relative_path');
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/controllers/category.js:103:15
+
+Cannot determine type of empty array literal. Please provide an annotation.
+[missing-empty-array-annot]
+
+     100│
+     101│     await buildBreadcrumbs(req, categoryData);
+     102│     if (categoryData.children.length) {
+     103│         const allCategories = [];
+     104│         categories.flattenCategories(allCategories, categoryData.children);
+     105│         await categories.getRecentTopicReplies(allCategories, req.uid, req.query);
+     106│         categoryData.subCategoriesLeft = Math.max(0, categoryData.children.length - categoryData.subCategoriesPerPage);
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/controllers/category.js:146:33
+
+Missing an annotation on req. [missing-local-annot]
+
+     143│     res.render('category', categoryData);
+     144│ };
+     145│
+     146│ async function buildBreadcrumbs(req, categoryData) {
+     147│     const breadcrumbs = [
+     148│         {
+     149│             text: categoryData.name,
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/controllers/category.js:146:38
+
+Missing an annotation on categoryData. [missing-local-annot]
+
+     143│     res.render('category', categoryData);
+     144│ };
+     145│
+     146│ async function buildBreadcrumbs(req, categoryData) {
+     147│     const breadcrumbs = [
+     148│         {
+     149│             text: categoryData.name,
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/controllers/category.js:160:18
+
+Missing an annotation on categoryData. [missing-local-annot]
+
+     157│     }
+     158│ }
+     159│
+     160│ function addTags(categoryData, res) {
+     161│     res.locals.metaTags = [
+     162│         {
+     163│             name: 'title',
+
+
+Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/controllers/category.js:160:32
+
+Missing an annotation on res. [missing-local-annot]
+
+     157│     }
+     158│ }
+     159│
+     160│ function addTags(categoryData, res) {
+     161│     res.locals.metaTags = [
+     162│         {
+     163│             name: 'title',
+
+
+
+Found 6 errors
