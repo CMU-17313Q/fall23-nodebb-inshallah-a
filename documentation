@@ -92,3 +92,60 @@ Missing an annotation on res. [missing-local-annot]
 
 
 Found 6 errors
+
+-----------------------------------
+After running (npx stryker run)
+This is the output: 
+
+16:29:32 (76841) INFO ProjectReader Found 551 of 10166 file(s) to be mutated.
+16:29:33 (76841) ERROR Stryker Unexpected error occurred while running Stryker SyntaxError: /Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/src/cli/index.js: 'return' outside of function. (101:4)
+
+   99 | if (!configExists && process.argv[2] !== 'setup') {
+  100 |     require('./setup').webInstall();
+> 101 |     return;
+      |     ^
+  102 | }
+  103 |
+  104 | process.env.CONFIG = configFile;
+    at constructor (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:356:19)
+    at V8IntrinsicMixin.raise (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:3223:19)
+    at V8IntrinsicMixin.parseReturnStatement (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:13000:12)
+    at V8IntrinsicMixin.parseStatementContent (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12626:21)
+    at V8IntrinsicMixin.parseStatementLike (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12593:17)
+    at V8IntrinsicMixin.parseStatementLike (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:5093:24)
+    at V8IntrinsicMixin.parseStatementListItem (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12573:17)
+    at V8IntrinsicMixin.parseBlockOrModuleBlockBody (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:13194:61)
+    at V8IntrinsicMixin.parseBlockBody (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:13187:10)
+    at V8IntrinsicMixin.parseBlock (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:13175:10)
+    at V8IntrinsicMixin.parseStatementContent (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12695:21)
+    at V8IntrinsicMixin.parseStatementLike (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12593:17)
+    at V8IntrinsicMixin.parseStatementLike (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:5093:24)
+    at V8IntrinsicMixin.parseStatementOrSloppyAnnexBFunctionDeclaration (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12583:17)
+    at V8IntrinsicMixin.parseIfStatement (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12994:28)
+    at V8IntrinsicMixin.parseStatementContent (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12624:21)
+    at V8IntrinsicMixin.parseStatementLike (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12593:17)
+    at V8IntrinsicMixin.parseStatementLike (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:5093:24)
+    at V8IntrinsicMixin.parseModuleItem (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12570:17)
+    at V8IntrinsicMixin.parseBlockOrModuleBlockBody (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:13194:36)
+    at V8IntrinsicMixin.parseBlockBody (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:13187:10)
+    at V8IntrinsicMixin.parseProgram (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12469:10)
+    at V8IntrinsicMixin.parseTopLevel (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:12459:25)
+    at V8IntrinsicMixin.parseTopLevel (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:5898:28)
+    at V8IntrinsicMixin.parse (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:14381:10)
+    at parse (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/parser/lib/index.js:14422:38)
+    at parser (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/core/lib/parser/index.js:41:34)
+    at parser.next (<anonymous>)
+    at parse (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/@babel/core/lib/parse.js:25:37)
+    at parse.next (<anonymous>)
+    at step (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/gensync/index.js:261:32)
+    at /Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/gensync/index.js:273:13
+    at async.call.result.err.err (/Users/saadaal-ghasel/Desktop/fall23-nodebb-inshallah-a/node_modules/gensync/index.js:223:11) {
+  code: 'BABEL_PARSE_ERROR',
+  reasonCode: 'IllegalReturn',
+  loc: Position { line: 101, column: 4, index: 3412 },
+  pos: 3412
+}
+16:29:33 (76841) INFO Stryker This might be a known problem with a solution documented in our troubleshooting guide.
+16:29:33 (76841) INFO Stryker You can find it at https://stryker-mutator.io/docs/stryker-js/troubleshooting/
+16:29:33 (76841) INFO Stryker Still having trouble figuring out what went wrong? Try `npx stryker run --fileLogLevel trace --logLevel debug` to get some more info.
+
