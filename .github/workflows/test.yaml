@@ -179,3 +179,9 @@ jobs:
 
       - name: Extract coverage info
         run: npm run coverage
+
+      - name: Flow Init
+        run: npm run flow init
+
+      - name: Run Flow
+        run: npx flow
