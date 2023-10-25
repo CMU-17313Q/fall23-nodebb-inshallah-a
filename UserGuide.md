@@ -32,6 +32,7 @@ brew install redis
 
 ```
 npm install eslint-config-nodebb --save-dev
+npm install lodash --save
 ```
 
 
