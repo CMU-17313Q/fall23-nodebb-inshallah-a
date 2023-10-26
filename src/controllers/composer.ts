@@ -1,6 +1,5 @@
 // This is one of the two example TypeScript files included with the NodeBB repository
 // It is meant to serve as an example to assist you with your HW1 translation
-// @flow
 
 import nconf from 'nconf';
 
