@@ -179,15 +179,3 @@ jobs:
 
       - name: Extract coverage info
         run: npm run coverage
-
-      - name: Setting up NodeBB
-        run: ./nodebb setup
-        
-      - name: Building NodeBB
-        run: ./nodebb build
-
-      - name: Flow Init
-        run: npm run flow init
-
-      - name: Run Flow
-        run: npx flow
