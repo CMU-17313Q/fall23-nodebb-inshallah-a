@@ -23,6 +23,10 @@ brew install redis
 <b> Keep pressing enter when encountering ./nodebb setup questions, only in the database question (Which database to use (mongo)) write 'redis' </b> 
 
 ```
+npm install eslint-config-nodebb --save-dev
+npm install lodash --save
+```
+```
 ./nodebb setup
 ```
 
@@ -30,10 +34,7 @@ brew install redis
 ./nodebb build
 ```
 
-```
-npm install eslint-config-nodebb --save-dev
-npm install lodash --save
-```
+
 
 
 ```
