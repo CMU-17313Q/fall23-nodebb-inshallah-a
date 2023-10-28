@@ -1,0 +1,4 @@
+include:
+  - ./src/pubsub.ts
+exclude:
+  - ./node_modules/**
