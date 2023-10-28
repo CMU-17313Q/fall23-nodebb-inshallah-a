@@ -96,12 +96,12 @@ const configExists = file.existsSync(configFile) || (nconf.get('url') && nconf.g
 prestart.loadConfig(configFile);
 prestart.versionCheck();
 
-(function() {
-if (!configExists && process.argv[2] !== 'setup') {
-    require('./setup').webInstall();
-    return;
-}
-})();
+(function () {
+    if (!configExists && process.argv[2] !== 'setup') {
+        require('./setup').webInstall();
+    }
+}());
+
 
 process.env.CONFIG = configFile;
 
