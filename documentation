@@ -9,6 +9,17 @@ The output of the hegel command:
 
 Found 1 error
 
+./src/pubsub.ts:15
+  13 | function get() {
+  14 |     if (real) {
+> 15 |         return real as string;
+     |                    ^ Missing semicolon. 
+  16 |     }
+  17 |
+  18 |     let pubsub;
+
+Found 1 error
+
 The output of the npx flow command: 
      
 Error ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ src/controllers/category.js:21:28
