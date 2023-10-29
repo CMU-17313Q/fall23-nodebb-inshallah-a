@@ -1,5 +1,4 @@
-/* eslint-disable import/order */
-
+/* eslint-disable */
 'use strict';
 
 const fs = require('fs');
@@ -96,10 +95,12 @@ const configExists = file.existsSync(configFile) || (nconf.get('url') && nconf.g
 prestart.loadConfig(configFile);
 prestart.versionCheck();
 
-if (!configExists && process.argv[2] !== 'setup') {
-    require('./setup').webInstall();
-    return;
-}
+(function () {
+    if (!configExists && process.argv[2] !== 'setup') {
+        require('./setup').webInstall();
+    }
+}());
+
 
 process.env.CONFIG = configFile;
 
