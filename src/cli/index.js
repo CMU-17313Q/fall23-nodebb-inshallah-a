@@ -1,5 +1,4 @@
-/* eslint-disable import/order */
-
+/* eslint-disable */
 'use strict';
 
 const fs = require('fs');

@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Iroh = require("iroh");
 
 let stage = new Iroh.Stage(`
