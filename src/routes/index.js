@@ -95,7 +95,7 @@ _mounts.category = (app, name, middleware, controllers) => {
 _mounts.career = (app, name, middleware, controllers) => {
     const middlewares = [middleware.ensureLoggedIn];
 
-    setupPageRoute(app, `/${name}`, middlewares, controllers.career.get);
+    setupPageRoute(app, `/${name}`, middlewares, controllers.careers.get);
 };
 
 _mounts.users = (app, name, middleware, controllers) => {
@@ -112,6 +112,10 @@ _mounts.groups = (app, name, middleware, controllers) => {
     setupPageRoute(app, `/${name}/:slug/members`, middlewares, controllers.groups.members);
 };
 
+_mounts.careers = (app, name, middleware, controllers) => {
+    setupPageRoute(app, '/careers/predict', [], controllers.write.career.register);
+};
+
 
 
 module.exports = async function (app, middleware) {
@@ -121,7 +125,7 @@ module.exports = async function (app, middleware) {
     };
 
     // Allow plugins/themes to mount some routes elsewhere
-    const remountable = ['admin', 'category', 'topic', 'post', 'users', 'user', 'groups', 'tags', 'career'];
+    const remountable = ['admin', 'category', 'topic', 'post', 'users', 'user', 'groups', 'tags', 'career', 'careers'];
     const { mounts } = await plugins.hooks.fire('filter:router.add', {
         mounts: remountable.reduce((memo, mount) => {
             memo[mount] = mount;

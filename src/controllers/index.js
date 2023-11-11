@@ -15,7 +15,7 @@ Controllers.ping = require('./ping');
 Controllers.home = require('./home');
 Controllers.topics = require('./topics');
 Controllers.posts = require('./posts');
-Controllers.career = require('./career');
+Controllers.careers = require('./careers');
 Controllers.categories = require('./categories');
 Controllers.category = require('./category');
 Controllers.unread = require('./unread');
@@ -188,6 +188,7 @@ Controllers.register = async function (req, res, next) {
                         <select class="form-control" name="account-type" aria-label="Account Type">
                             <option value="student" selected>Student</option>
                             <option value="instructor">Instructor</option>
+                            <option value="recruiter">Recruiter</option>
                         </select>
                     `,
                 },
