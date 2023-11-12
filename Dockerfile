@@ -16,7 +16,7 @@ RUN npm install && \
 
 # Copy your Python requirements file and install Python dependencies
 COPY --chown=node:node requirements.txt /usr/src/app/requirements.txt
-RUN python3 -m pip install --no-cache-dir -r requirements.txt
+RUN python3 -m pip install --no-cache-dir -r career-model/requirements.txt
 
 # Copy the rest of your application's source code
 COPY --chown=node:node . /usr/src/app
