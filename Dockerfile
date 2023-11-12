@@ -9,14 +9,21 @@ RUN mkdir -p /usr/src/app && \
     chown -R node:node /usr/src/app
 WORKDIR /usr/src/app
 
+# Create a Python virtual environment and activate it
+RUN python3 -m venv venv
+ENV PATH="/usr/src/app/venv/bin:$PATH"
+
+# Upgrade pip to the latest version
+RUN pip install --upgrade pip
+
+# Copy your Python requirements file and install Python dependencies
+COPY --chown=node:node career-model/requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
 # Install Node.js dependencies
 COPY --chown=node:node package.json.docker /usr/src/app/package.json
 RUN npm install && \
     npm cache clean --force
-
-# Copy your Python requirements file and install Python dependencies
-COPY --chown=node:node career-model/requirements.txt /usr/src/app/career-model/requirements.txt
-RUN python3 -m pip install --no-cache-dir -r career-model/requirements.txt
 
 # Copy the rest of your application's source code
 COPY --chown=node:node . /usr/src/app
