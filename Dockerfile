@@ -14,7 +14,11 @@ COPY --chown=node:node package.json.docker /usr/src/app/package.json
 RUN npm install && \
     npm cache clean --force
 
-# Copy your Node.js application
+# Copy your Python requirements file and install Python dependencies
+COPY --chown=node:node requirements.txt /usr/src/app/requirements.txt
+RUN python3 -m pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of your application's source code
 COPY --chown=node:node . /usr/src/app
 
 # Set environment variables
@@ -28,10 +32,7 @@ EXPOSE 4567
 # Give execution rights on the scripts
 RUN chmod +x create_config.sh
 
-# Assuming your Python script doesn't need to keep running like a server
-# and just needs to be executed once during the container startup,
-# you can run it before starting your Node.js application.
-
+# Run your setup script and then start NodeBB
 CMD ./create_config.sh -n "${SETUP}" && \
     ./nodebb setup || node ./nodebb build; \
     python3 career-model/predict.py; \
