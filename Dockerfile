@@ -1,8 +1,8 @@
 FROM node:lts
 
-# Install Python and other dependencies
+# Install Python, pip, venv and other dependencies
 RUN apt-get update && \
-    apt-get install -y jq python3 python3-pip
+    apt-get install -y jq python3 python3-pip python3-venv
 
 # Set the working directory
 RUN mkdir -p /usr/src/app && \
