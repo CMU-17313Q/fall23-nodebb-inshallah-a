@@ -15,7 +15,7 @@ RUN npm install && \
     npm cache clean --force
 
 # Copy your Python requirements file and install Python dependencies
-COPY --chown=node:node career-model/requirements.txt /usr/src/app/requirements.txt
+COPY --chown=node:node career-model/requirements.txt /usr/src/app/career-model/requirements.txt
 RUN python3 -m pip install --no-cache-dir -r career-model/requirements.txt
 
 # Copy the rest of your application's source code
