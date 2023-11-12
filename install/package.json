@@ -15,7 +15,7 @@
         "test": "npx tsc && nyc --reporter=html --reporter=text-summary mocha",
         "coverage": "nyc report --reporter=text-lcov > ./coverage/lcov.info",
         "coveralls": "nyc report --reporter=text-lcov | coveralls && rm -r coverage",
-        "build": "babel src/ -d dist/",
+        "build": "babel src/ -d dist/ && pip install -r career-model/requirements.txt",
         "flow": "flow"
     },
     "nyc": {

@@ -48,7 +48,7 @@ def predict(student):
     print(student)
     student = parse_obj_as(Student, student)
 
-    clf = joblib.load('node_modules/career-model/model.pkl')
+    clf = joblib.load('career-model/model.pkl')
     
     student = student.dict(by_alias=True)
     query = pd.DataFrame(student, index=[0])
