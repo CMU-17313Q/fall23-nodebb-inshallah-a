@@ -10,7 +10,7 @@ Career.register = async function (req, res) {
     try {
         // Forward the request to the Flask application
         // console.log(userData.student_id);
-        const flaskResponse = await fetch('https://fall23-nodebb-inshallah-a-32zs7t7gxq-uc.a.run.app/predict', {
+        const flaskResponse = await fetch('https://fall23-nodebb-inshallah-a-ml-predict-microservice-32zs7t7gxq-uc.a.run.app//predict', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
