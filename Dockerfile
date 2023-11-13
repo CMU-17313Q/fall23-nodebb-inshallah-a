@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY career-model .
 
 # Install the Python dependencies.
-RUN pip install --no-cache-dir -r career-model/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application source code into the container.
 COPY career-model/predict.py .
