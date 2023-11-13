@@ -4,7 +4,7 @@ import joblib
 from pydantic import BaseModel, Field
 from pydantic.tools import parse_obj_as
 from flask_cors import CORS
-
+import os 
 app = Flask(__name__)
 CORS(app)
 
@@ -93,4 +93,4 @@ def get_prediction():
     return make_prediction()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8000)))
