@@ -1,31 +1,32 @@
-# Start with a Python base image that matches your local Python version
-FROM python:3.11.5
+FROM node:lts
 
-# Install Node.js in addition to Python
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs
+# Install Python, pip, venv and other dependencies
+RUN apt-get update && \
+    apt-get install -y jq python3 python3-pip python3-venv
 
-# Set the working directory and create if doesn't exist
+# Set the working directory
+RUN mkdir -p /usr/src/app && \
+    chown -R node:node /usr/src/app
 WORKDIR /usr/src/app
 
 # Create a Python virtual environment and activate it
-RUN python -m venv venv
+RUN python3 -m venv venv
 ENV PATH="/usr/src/app/venv/bin:$PATH"
 
 # Upgrade pip to the latest version
 RUN pip install --upgrade pip
 
 # Copy your Python requirements file and install Python dependencies
-COPY career-model/requirements.txt .
+COPY --chown=node:node career-model/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install Node.js dependencies
-COPY package.json.docker /usr/src/app/package.json
+COPY --chown=node:node package.json.docker /usr/src/app/package.json
 RUN npm install && \
     npm cache clean --force
 
 # Copy the rest of your application's source code
-COPY . .
+COPY --chown=node:node . /usr/src/app
 
 # Set environment variables
 ENV NODE_ENV=production \
@@ -41,5 +42,5 @@ RUN chmod +x create_config.sh
 # Run your setup script and then start NodeBB
 CMD ./create_config.sh -n "${SETUP}" && \
     ./nodebb setup || node ./nodebb build; \
-    python career-model/predict.py; \
+    python3 career-model/predict.py; \
     node ./nodebb start
