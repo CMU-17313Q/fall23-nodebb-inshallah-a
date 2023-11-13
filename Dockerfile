@@ -5,10 +5,10 @@ FROM python:3.9-slim
 WORKDIR /usr/src/app
 
 # Copy the Python requirements file into the container.
-COPY career-model/requirements.txt .
+COPY career-model .
 
 # Install the Python dependencies.
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r career-model/requirements.txt
 
 # Copy the rest of the application source code into the container.
 COPY career-model/predict.py .
